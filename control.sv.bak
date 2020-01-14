@@ -15,30 +15,19 @@ module control
 	// LED Control: Setting this to 1 will copy the current
 	// values of over/under/equal to the 3 LEDs. Setting this to 0
 	// will cause the LEDs to hold their current values.
-	output logic o_update_leds,
-	
-	output logic [3:0] o_num_guesses
+	output logic o_update_leds
 );
 
 // Declare two objects, 'state' and 'nextstate'
 // that are of enum type.
 enum int unsigned
 {
-	S_REST,
-	S_KEY_DOWN,
-	S_GUESS,
-	S_END
+	// TODO: declare states here
 } state, nextstate;
-
-logic started;
 
 // Clocked always block for making state registers
 always_ff @ (posedge clk or posedge reset) begin
-	if (reset) begin
-		state <= S_REST;
-		started <= 1'b0;
-		o_num_guesses <= 4'd7;
-	end
+	if (reset) state <= // TODO: choose initial reset state
 	else state <= nextstate;
 end
 
@@ -52,22 +41,7 @@ always_comb begin
 	o_update_leds = 1'b0;
 	
 	case (state)
-		S_REST: begin
-			if (~started) o_inc_actual = 1'b1;
-			if (i_enter) nextstate = S_KEY_DOWN;
-		end
-		
-		S_KEY_DOWN: begin
-			started <= 1'b1;
-			if (~i_enter) nextstate = S_GUESS;
-		end
-		
-		S_GUESS: begin
-			o_num_guesses = o_num_guesses - 1;
-			o_update_leds = 1'b1;
-			if (~o_num_guesses) nextstate = S_END;
-			else nextstate = S_REST;
-		end
+		// TODO: complete this
 	endcase
 end
 

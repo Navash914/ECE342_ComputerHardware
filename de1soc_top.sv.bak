@@ -48,7 +48,6 @@ module de1soc_top
 	wire over;
 	wire equal;
 	wire update_leds;
-	wire [3:0] num_guesses;
 	game game_inst
 	(
 		.clk(clk),
@@ -58,8 +57,7 @@ module de1soc_top
 		.o_under(under),
 		.o_over(over),
 		.o_equal(equal),
-		.o_update_leds(update_leds),
-		.o_num_guesses(num_guesses)
+		.o_update_leds(update_leds)
 	);
 	
 	// LED controllers
@@ -80,15 +78,10 @@ module de1soc_top
 		.segments(HEX1)
 	);
 	
-	hex_decoder hexdec_numguesses
-	(
-		.hex_digit(num_guesses),
-		.segments(HEX5)
-	);
-	
 	// Turn off the other HEXes
 	assign HEX2 = '1;
 	assign HEX3 = '1;
 	assign HEX4 = '1;
+	assign HEX5 = '1;
 	
 endmodule
