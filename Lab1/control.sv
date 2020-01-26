@@ -39,7 +39,11 @@ always_ff @ (posedge clk or posedge reset) begin
 		started <= 1'b0;
 		o_num_guesses <= 4'd7;
 	end
-	else state <= nextstate;
+	else begin
+		state <= nextstate;
+		if (state == S_KEY_DOWN) started = 1'b1;
+		if (state == S_GUESS && o_num_guesses > 4'b0) o_num_guesses = o_num_guesses - 1;
+	end
 end
 
 // always_comb replaces always @* and gives compile-time errors instead of warnings
@@ -58,14 +62,12 @@ always_comb begin
 		end
 		
 		S_KEY_DOWN: begin
-			started <= 1'b1;
 			if (~i_enter) nextstate = S_GUESS;
 		end
 		
 		S_GUESS: begin
-			o_num_guesses = o_num_guesses - 1;
 			o_update_leds = 1'b1;
-			if (~o_num_guesses) nextstate = S_END;
+			if (o_num_guesses == 4'b0) nextstate = S_END;
 			else nextstate = S_REST;
 		end
 	endcase
