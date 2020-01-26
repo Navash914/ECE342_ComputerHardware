@@ -1,0 +1,1351 @@
+|de1soc_top
+CLOCK_50 => clk.IN3
+HEX0[0] <= hex_decoder:hex0.segments
+HEX0[1] <= hex_decoder:hex0.segments
+HEX0[2] <= hex_decoder:hex0.segments
+HEX0[3] <= hex_decoder:hex0.segments
+HEX0[4] <= hex_decoder:hex0.segments
+HEX0[5] <= hex_decoder:hex0.segments
+HEX0[6] <= hex_decoder:hex0.segments
+HEX1[0] <= hex_decoder:hex1.segments
+HEX1[1] <= hex_decoder:hex1.segments
+HEX1[2] <= hex_decoder:hex1.segments
+HEX1[3] <= hex_decoder:hex1.segments
+HEX1[4] <= hex_decoder:hex1.segments
+HEX1[5] <= hex_decoder:hex1.segments
+HEX1[6] <= hex_decoder:hex1.segments
+HEX2[0] <= hex_decoder:hex2.segments
+HEX2[1] <= hex_decoder:hex2.segments
+HEX2[2] <= hex_decoder:hex2.segments
+HEX2[3] <= hex_decoder:hex2.segments
+HEX2[4] <= hex_decoder:hex2.segments
+HEX2[5] <= hex_decoder:hex2.segments
+HEX2[6] <= hex_decoder:hex2.segments
+HEX3[0] <= hex_decoder:hex3.segments
+HEX3[1] <= hex_decoder:hex3.segments
+HEX3[2] <= hex_decoder:hex3.segments
+HEX3[3] <= hex_decoder:hex3.segments
+HEX3[4] <= hex_decoder:hex3.segments
+HEX3[5] <= hex_decoder:hex3.segments
+HEX3[6] <= hex_decoder:hex3.segments
+HEX4[0] <= <VCC>
+HEX4[1] <= <VCC>
+HEX4[2] <= <VCC>
+HEX4[3] <= <VCC>
+HEX4[4] <= <VCC>
+HEX4[5] <= <VCC>
+HEX4[6] <= <VCC>
+HEX5[0] <= <VCC>
+HEX5[1] <= <VCC>
+HEX5[2] <= <VCC>
+HEX5[3] <= <VCC>
+HEX5[4] <= <VCC>
+HEX5[5] <= <VCC>
+HEX5[6] <= <VCC>
+KEY[0] => ~NO_FANOUT~
+KEY[1] => ~NO_FANOUT~
+KEY[2] => ~NO_FANOUT~
+KEY[3] => ~NO_FANOUT~
+LEDR[0] <= <GND>
+LEDR[1] <= <GND>
+LEDR[2] <= <GND>
+LEDR[3] <= <GND>
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
+LEDR[8] <= <GND>
+LEDR[9] <= <GND>
+SW[0] => data[0].IN2
+SW[1] => data[1].IN2
+SW[2] => data[2].IN2
+SW[3] => data[3].IN2
+SW[4] => data[4].IN2
+SW[5] => data[5].IN2
+SW[6] => data[6].IN2
+SW[7] => data[7].IN2
+SW[8] => ~NO_FANOUT~
+SW[9] => select.IN1
+VGA_B[0] <= <GND>
+VGA_B[1] <= <GND>
+VGA_B[2] <= <GND>
+VGA_B[3] <= <GND>
+VGA_B[4] <= <GND>
+VGA_B[5] <= <GND>
+VGA_B[6] <= <GND>
+VGA_B[7] <= <GND>
+VGA_BLANK_N <= <GND>
+VGA_CLK <= <GND>
+VGA_G[0] <= <GND>
+VGA_G[1] <= <GND>
+VGA_G[2] <= <GND>
+VGA_G[3] <= <GND>
+VGA_G[4] <= <GND>
+VGA_G[5] <= <GND>
+VGA_G[6] <= <GND>
+VGA_G[7] <= <GND>
+VGA_HS <= <GND>
+VGA_R[0] <= <GND>
+VGA_R[1] <= <GND>
+VGA_R[2] <= <GND>
+VGA_R[3] <= <GND>
+VGA_R[4] <= <GND>
+VGA_R[5] <= <GND>
+VGA_R[6] <= <GND>
+VGA_R[7] <= <GND>
+VGA_SYNC_N <= <GND>
+VGA_VS <= <GND>
+
+
+|de1soc_top|reg_n:regx
+i_clk => o_data[0]~reg0.CLK
+i_clk => o_data[1]~reg0.CLK
+i_clk => o_data[2]~reg0.CLK
+i_clk => o_data[3]~reg0.CLK
+i_clk => o_data[4]~reg0.CLK
+i_clk => o_data[5]~reg0.CLK
+i_clk => o_data[6]~reg0.CLK
+i_clk => o_data[7]~reg0.CLK
+i_en => o_data[0]~reg0.ENA
+i_en => o_data[1]~reg0.ENA
+i_en => o_data[2]~reg0.ENA
+i_en => o_data[3]~reg0.ENA
+i_en => o_data[4]~reg0.ENA
+i_en => o_data[5]~reg0.ENA
+i_en => o_data[6]~reg0.ENA
+i_en => o_data[7]~reg0.ENA
+i_data[0] => o_data[0]~reg0.DATAIN
+i_data[1] => o_data[1]~reg0.DATAIN
+i_data[2] => o_data[2]~reg0.DATAIN
+i_data[3] => o_data[3]~reg0.DATAIN
+i_data[4] => o_data[4]~reg0.DATAIN
+i_data[5] => o_data[5]~reg0.DATAIN
+i_data[6] => o_data[6]~reg0.DATAIN
+i_data[7] => o_data[7]~reg0.DATAIN
+o_data[0] <= o_data[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[1] <= o_data[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[2] <= o_data[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[3] <= o_data[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[4] <= o_data[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[5] <= o_data[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[6] <= o_data[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[7] <= o_data[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|reg_n:regy
+i_clk => o_data[0]~reg0.CLK
+i_clk => o_data[1]~reg0.CLK
+i_clk => o_data[2]~reg0.CLK
+i_clk => o_data[3]~reg0.CLK
+i_clk => o_data[4]~reg0.CLK
+i_clk => o_data[5]~reg0.CLK
+i_clk => o_data[6]~reg0.CLK
+i_clk => o_data[7]~reg0.CLK
+i_en => o_data[0]~reg0.ENA
+i_en => o_data[1]~reg0.ENA
+i_en => o_data[2]~reg0.ENA
+i_en => o_data[3]~reg0.ENA
+i_en => o_data[4]~reg0.ENA
+i_en => o_data[5]~reg0.ENA
+i_en => o_data[6]~reg0.ENA
+i_en => o_data[7]~reg0.ENA
+i_data[0] => o_data[0]~reg0.DATAIN
+i_data[1] => o_data[1]~reg0.DATAIN
+i_data[2] => o_data[2]~reg0.DATAIN
+i_data[3] => o_data[3]~reg0.DATAIN
+i_data[4] => o_data[4]~reg0.DATAIN
+i_data[5] => o_data[5]~reg0.DATAIN
+i_data[6] => o_data[6]~reg0.DATAIN
+i_data[7] => o_data[7]~reg0.DATAIN
+o_data[0] <= o_data[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[1] <= o_data[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[2] <= o_data[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[3] <= o_data[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[4] <= o_data[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[5] <= o_data[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[6] <= o_data[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[7] <= o_data[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|reg_n:regout
+i_clk => o_data[0]~reg0.CLK
+i_clk => o_data[1]~reg0.CLK
+i_clk => o_data[2]~reg0.CLK
+i_clk => o_data[3]~reg0.CLK
+i_clk => o_data[4]~reg0.CLK
+i_clk => o_data[5]~reg0.CLK
+i_clk => o_data[6]~reg0.CLK
+i_clk => o_data[7]~reg0.CLK
+i_clk => o_data[8]~reg0.CLK
+i_clk => o_data[9]~reg0.CLK
+i_clk => o_data[10]~reg0.CLK
+i_clk => o_data[11]~reg0.CLK
+i_clk => o_data[12]~reg0.CLK
+i_clk => o_data[13]~reg0.CLK
+i_clk => o_data[14]~reg0.CLK
+i_clk => o_data[15]~reg0.CLK
+i_en => o_data[0]~reg0.ENA
+i_en => o_data[1]~reg0.ENA
+i_en => o_data[2]~reg0.ENA
+i_en => o_data[3]~reg0.ENA
+i_en => o_data[4]~reg0.ENA
+i_en => o_data[5]~reg0.ENA
+i_en => o_data[6]~reg0.ENA
+i_en => o_data[7]~reg0.ENA
+i_en => o_data[8]~reg0.ENA
+i_en => o_data[9]~reg0.ENA
+i_en => o_data[10]~reg0.ENA
+i_en => o_data[11]~reg0.ENA
+i_en => o_data[12]~reg0.ENA
+i_en => o_data[13]~reg0.ENA
+i_en => o_data[14]~reg0.ENA
+i_en => o_data[15]~reg0.ENA
+i_data[0] => o_data[0]~reg0.DATAIN
+i_data[1] => o_data[1]~reg0.DATAIN
+i_data[2] => o_data[2]~reg0.DATAIN
+i_data[3] => o_data[3]~reg0.DATAIN
+i_data[4] => o_data[4]~reg0.DATAIN
+i_data[5] => o_data[5]~reg0.DATAIN
+i_data[6] => o_data[6]~reg0.DATAIN
+i_data[7] => o_data[7]~reg0.DATAIN
+i_data[8] => o_data[8]~reg0.DATAIN
+i_data[9] => o_data[9]~reg0.DATAIN
+i_data[10] => o_data[10]~reg0.DATAIN
+i_data[11] => o_data[11]~reg0.DATAIN
+i_data[12] => o_data[12]~reg0.DATAIN
+i_data[13] => o_data[13]~reg0.DATAIN
+i_data[14] => o_data[14]~reg0.DATAIN
+i_data[15] => o_data[15]~reg0.DATAIN
+o_data[0] <= o_data[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[1] <= o_data[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[2] <= o_data[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[3] <= o_data[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[4] <= o_data[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[5] <= o_data[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[6] <= o_data[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[7] <= o_data[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[8] <= o_data[8]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[9] <= o_data[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[10] <= o_data[10]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[11] <= o_data[11]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[12] <= o_data[12]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[13] <= o_data[13]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[14] <= o_data[14]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o_data[15] <= o_data[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[0] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[1] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[2] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[3] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[4] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[5] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[6] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_m[7] => fa_a.IN1
+i_q[0] => mult_row[1].be_q[0].IN2
+i_q[1] => mult_row[2].be_q[0].IN2
+i_q[2] => mult_row[3].be_q[0].IN2
+i_q[3] => mult_row[4].be_q[0].IN2
+i_q[4] => mult_row[5].be_q[0].IN2
+i_q[5] => mult_row[6].be_q[0].IN2
+i_q[6] => mult_row[7].be_q[0].IN2
+i_q[7] => mult_row[7].be_q[1].IN1
+o_p[0] <= full_adder:mult_row[0].mult_col[0].fa.o_sum
+o_p[1] <= full_adder:mult_row[1].mult_col[0].fa.o_sum
+o_p[2] <= full_adder:mult_row[2].mult_col[0].fa.o_sum
+o_p[3] <= full_adder:mult_row[3].mult_col[0].fa.o_sum
+o_p[4] <= full_adder:mult_row[4].mult_col[0].fa.o_sum
+o_p[5] <= full_adder:mult_row[5].mult_col[0].fa.o_sum
+o_p[6] <= full_adder:mult_row[6].mult_col[0].fa.o_sum
+o_p[7] <= full_adder:mult_row[7].mult_col[0].fa.o_sum
+o_p[8] <= full_adder:mult_row[7].mult_col[1].fa.o_sum
+o_p[9] <= full_adder:mult_row[7].mult_col[2].fa.o_sum
+o_p[10] <= full_adder:mult_row[7].mult_col[3].fa.o_sum
+o_p[11] <= full_adder:mult_row[7].mult_col[4].fa.o_sum
+o_p[12] <= full_adder:mult_row[7].mult_col[5].fa.o_sum
+o_p[13] <= full_adder:mult_row[7].mult_col[6].fa.o_sum
+o_p[14] <= full_adder:mult_row[7].mult_col[7].fa.o_sum
+o_p[15] <= full_adder:mult_row[7].mult_col[7].fa.o_cout
+
+
+|de1soc_top|array_multiplier:comb_15|booth_encoder:mult_row[0].be
+i_q[0] => o_plus.IN0
+i_q[0] => o_minus.IN0
+i_q[1] => o_minus.IN1
+i_q[1] => o_plus.IN1
+o_plus <= o_plus.DB_MAX_OUTPUT_PORT_TYPE
+o_minus <= o_minus.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[0].mult_col[0].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[0].mult_col[1].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[0].mult_col[2].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[0].mult_col[3].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[0].mult_col[4].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[0].mult_col[5].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[0].mult_col[6].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[0].mult_col[7].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|booth_encoder:mult_row[1].be
+i_q[0] => o_plus.IN0
+i_q[0] => o_minus.IN0
+i_q[1] => o_minus.IN1
+i_q[1] => o_plus.IN1
+o_plus <= o_plus.DB_MAX_OUTPUT_PORT_TYPE
+o_minus <= o_minus.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[1].mult_col[0].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[1].mult_col[1].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[1].mult_col[2].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[1].mult_col[3].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[1].mult_col[4].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[1].mult_col[5].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[1].mult_col[6].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[1].mult_col[7].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|booth_encoder:mult_row[2].be
+i_q[0] => o_plus.IN0
+i_q[0] => o_minus.IN0
+i_q[1] => o_minus.IN1
+i_q[1] => o_plus.IN1
+o_plus <= o_plus.DB_MAX_OUTPUT_PORT_TYPE
+o_minus <= o_minus.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[2].mult_col[0].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[2].mult_col[1].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[2].mult_col[2].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[2].mult_col[3].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[2].mult_col[4].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[2].mult_col[5].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[2].mult_col[6].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[2].mult_col[7].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|booth_encoder:mult_row[3].be
+i_q[0] => o_plus.IN0
+i_q[0] => o_minus.IN0
+i_q[1] => o_minus.IN1
+i_q[1] => o_plus.IN1
+o_plus <= o_plus.DB_MAX_OUTPUT_PORT_TYPE
+o_minus <= o_minus.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[3].mult_col[0].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[3].mult_col[1].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[3].mult_col[2].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[3].mult_col[3].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[3].mult_col[4].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[3].mult_col[5].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[3].mult_col[6].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[3].mult_col[7].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|booth_encoder:mult_row[4].be
+i_q[0] => o_plus.IN0
+i_q[0] => o_minus.IN0
+i_q[1] => o_minus.IN1
+i_q[1] => o_plus.IN1
+o_plus <= o_plus.DB_MAX_OUTPUT_PORT_TYPE
+o_minus <= o_minus.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[4].mult_col[0].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[4].mult_col[1].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[4].mult_col[2].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[4].mult_col[3].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[4].mult_col[4].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[4].mult_col[5].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[4].mult_col[6].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[4].mult_col[7].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|booth_encoder:mult_row[5].be
+i_q[0] => o_plus.IN0
+i_q[0] => o_minus.IN0
+i_q[1] => o_minus.IN1
+i_q[1] => o_plus.IN1
+o_plus <= o_plus.DB_MAX_OUTPUT_PORT_TYPE
+o_minus <= o_minus.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[5].mult_col[0].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[5].mult_col[1].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[5].mult_col[2].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[5].mult_col[3].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[5].mult_col[4].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[5].mult_col[5].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[5].mult_col[6].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[5].mult_col[7].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|booth_encoder:mult_row[6].be
+i_q[0] => o_plus.IN0
+i_q[0] => o_minus.IN0
+i_q[1] => o_minus.IN1
+i_q[1] => o_plus.IN1
+o_plus <= o_plus.DB_MAX_OUTPUT_PORT_TYPE
+o_minus <= o_minus.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[6].mult_col[0].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[6].mult_col[1].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[6].mult_col[2].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[6].mult_col[3].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[6].mult_col[4].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[6].mult_col[5].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[6].mult_col[6].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[6].mult_col[7].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|booth_encoder:mult_row[7].be
+i_q[0] => o_plus.IN0
+i_q[0] => o_minus.IN0
+i_q[1] => o_minus.IN1
+i_q[1] => o_plus.IN1
+o_plus <= o_plus.DB_MAX_OUTPUT_PORT_TYPE
+o_minus <= o_minus.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[7].mult_col[0].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[7].mult_col[1].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[7].mult_col[2].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[7].mult_col[3].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[7].mult_col[4].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[7].mult_col[5].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[7].mult_col[6].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|array_multiplier:comb_15|full_adder:mult_row[7].mult_col[7].fa
+i_a => o_sum.IN0
+i_a => o_cout.IN0
+i_a => o_cout.IN0
+i_b => o_sum.IN1
+i_b => o_cout.IN1
+i_b => o_cout.IN1
+i_cin => o_sum.IN1
+i_cin => o_cout.IN1
+o_sum <= o_sum.DB_MAX_OUTPUT_PORT_TYPE
+o_cout <= o_cout.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|hex_decoder:hex3
+hex_digit[0] => Decoder0.IN3
+hex_digit[1] => Decoder0.IN2
+hex_digit[2] => Decoder0.IN1
+hex_digit[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|hex_decoder:hex2
+hex_digit[0] => Decoder0.IN3
+hex_digit[1] => Decoder0.IN2
+hex_digit[2] => Decoder0.IN1
+hex_digit[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|hex_decoder:hex1
+hex_digit[0] => Decoder0.IN3
+hex_digit[1] => Decoder0.IN2
+hex_digit[2] => Decoder0.IN1
+hex_digit[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|de1soc_top|hex_decoder:hex0
+hex_digit[0] => Decoder0.IN3
+hex_digit[1] => Decoder0.IN2
+hex_digit[2] => Decoder0.IN1
+hex_digit[3] => Decoder0.IN0
+segments[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+segments[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+segments[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+segments[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+segments[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+segments[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+segments[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+

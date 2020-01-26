@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at de1soc_top.sv(13): object "HEX3" differs only in case from object "hex3" in the same scope File: E:/ECE342/Lab2/de1soc_top.sv Line: 13
+Info (10281): Verilog HDL Declaration information at de1soc_top.sv(12): object "HEX2" differs only in case from object "hex2" in the same scope File: E:/ECE342/Lab2/de1soc_top.sv Line: 12
+Info (10281): Verilog HDL Declaration information at de1soc_top.sv(11): object "HEX1" differs only in case from object "hex1" in the same scope File: E:/ECE342/Lab2/de1soc_top.sv Line: 11
+Info (10281): Verilog HDL Declaration information at de1soc_top.sv(10): object "HEX0" differs only in case from object "hex0" in the same scope File: E:/ECE342/Lab2/de1soc_top.sv Line: 10

@@ -73,7 +73,11 @@ module de1soc_top
 	);
 	
 	// Multiplier module
-	// TODO
+	array_multiplier mult (
+		.i_m(reg_x),
+		.i_q(reg_y),
+		.o_p(mult_out)
+	);
 	
 	// Output on hexes
 	hex_decoder hex3 (

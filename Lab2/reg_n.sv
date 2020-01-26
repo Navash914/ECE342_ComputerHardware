@@ -3,7 +3,7 @@ module reg_n #(parameter NUM_BITS) (
 	input i_en,
 	input [NUM_BITS-1:0] i_data,
 	
-	output [NUM_BITS-1:0] o_data
+	output logic [NUM_BITS-1:0] o_data
 );
 
 	always_ff @(posedge i_clk) begin
