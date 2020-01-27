@@ -54,10 +54,10 @@ generate
 	end	// mult_row
 	
 	// Instantiate carry looakahead adder for higher bit outputs
-	logic [7:0] cla_cout;
+	logic cla_cout;
 	carry_lookahead_adder cla (
 		.i_a({1'b0, fa_out[7][7:1]}),
-		.i_b(fa_cout[7:0]),
+		.i_b(fa_cout[7]),
 		.i_cin(1'b0),
 		.o_sum(o_p[15:8]),
 		.o_cout(cla_cout)
