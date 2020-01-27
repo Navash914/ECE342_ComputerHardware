@@ -12,8 +12,8 @@ module tb();
 	);
 	
 	initial begin
-		for (integer m = -125; m < 127; m++) begin
-			for (integer q = -125; q < 127; q++) begin
+		for (integer m = -128; m < 128; m++) begin
+			for (integer q = -128; q < 128; q++) begin
 				logic [15:0] real_product;
 				real_product = m * q;
 				

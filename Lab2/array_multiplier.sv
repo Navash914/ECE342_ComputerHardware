@@ -5,11 +5,9 @@ module array_multiplier(
 	output [15:0] o_p
 );
 
-logic [7:0] plus;
-logic [7:0] minus;
-
-logic [7:0] [8:0] fa_out;
-logic [7:0] [8:0] fa_cout;
+// Full adder outputs
+logic [7:0] [15:0] fa_out;
+logic [7:0] [15:0] fa_cout;
 
 genvar row;
 genvar col;
@@ -17,6 +15,9 @@ genvar col;
 generate
 
 	for (row = 0; row < 8; row++) begin : mult_row
+		// Assign lower outputs
+		assign o_p[row] = fa_out[row][row];
+	
 		// Instantiate booth encoder
 		logic [1:0] be_q;
 		logic be_p;
@@ -35,12 +36,10 @@ generate
 			.o_minus(be_m)
 		);
 		
-		for (col = 0; col < 9; col++) begin : mult_col
-			// assign output
-			if (row == 7) begin
-				assign o_p[row + col] = fa_out[row][col];
-			end else begin
-				assign o_p[row] = fa_out[row][0];
+		for (col = row; col < 16; col++) begin : mult_col
+			// assign higher outputs
+			if (row == 7 && col > row) begin
+				assign o_p[col] = fa_out[row][col];
 			end
 			
 			// Inputs to full adder
@@ -48,25 +47,27 @@ generate
 			logic fa_b;
 			logic fa_cin;
 			
-			//assign be_se[row][col] = (i_m[col] & be_p) | (~i_m[col] & be_m);
-			if (col == 8) begin
-				assign fa_a = (i_m[col-1] & be_p) | (~i_m[col-1] & be_m);
-			end else begin
-				assign fa_a = (i_m[col] & be_p) | (~i_m[col] & be_m);
-			end
-			
+			// Drive fa_b input
 			if (row == 0) begin
-				assign fa_b = 1'b0;
-			end else if (col == 8) begin
-				assign fa_b = fa_cout[row-1][col];
+				assign fa_b = 0;
 			end else begin
-				assign fa_b = fa_out[row-1][col+1];
+				assign fa_b = fa_out[row-1][col];
 			end
 			
-			if (col == 0) begin
+			// Drive cin input
+			if (col == row) begin
 				assign fa_cin = be_m;
 			end else begin
 				assign fa_cin = fa_cout[row][col-1];
+			end
+			
+			// Drive fa_a input
+			if (col < row + 8) begin
+				// Multiplier units
+				assign fa_a = (i_m[col-row] & be_p) | (~i_m[col-row] & be_m);
+			end else begin
+				// Sign extension units
+				assign fa_a = (i_m[7] & be_p) | (~i_m[7] & be_m);
 			end
 			
 			// Instantiate full adder
@@ -81,8 +82,6 @@ generate
 			
 		end	// mult_col
 	end	// mult_row
-	
-	//assign o_p[15] = fa_cout[7][7];
 
 endgenerate
 
