@@ -71,8 +71,58 @@ always_ff @ (posedge CLOCK_50) begin
 	reset_reg <= {1'b1, reset_reg[1]};
 end
 
+// Get logical signal names
+logic clk, setX, setY, setCol, go;
+logic [8:0] val;
+
+assign clk = CLOCK_50;
+assign setX = ~KEY[0];
+assign setY = ~KEY[1];
+assign setCol = ~KEY[2];
+assign go = ~KEY[3];
+assign val = SW[8:0];
+
+// logic between UI and LDA
+logic start, done;
+logic [8:0] x0, y0;
+logic [7:0] x1, y1;
+logic [2:0] col;
+
 //
 // PUT YOUR UI AND LDA MODULE INSTANTIATIONS HERE
 //
 
-endmodule
+user_interface UI (
+	.clk(clk),
+	.reset(reset),
+	.i_setX(setX),
+	.i_setY(setY),
+	.i_setCol(setCol),
+	.i_go(go),
+	.i_val(val),
+	.i_done(done),
+	.o_start(start),
+	.o_x0(x0),
+	.o_y0(y0),
+	.o_x1(x1),
+	.o_y1(y1),
+	.o_col(col)
+);
+
+line_drawing_algorithm LDA (
+	.clk(clk),
+	.reset(reset),
+	.i_start(start),
+	.i_x0(x0),
+	.i_y0(y0),
+	.i_x1(x1),
+	.i_y1(y1),
+	.i_col(col),
+	.o_plot(vga_plot),
+	.o_x(vga_x),
+	.o_y(vga_y),
+	.o_col(vga_color),
+	.o_done(done)
+);
+
+endmodule 

@@ -1,4 +1,4 @@
-module LDA (
+module line_drawing_algorithm (
 	input clk,
 	input reset,
 

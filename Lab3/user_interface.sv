@@ -1,4 +1,4 @@
-module UI (
+module user_interface (
 	input clk,
 	input reset,
 
