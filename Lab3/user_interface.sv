@@ -39,7 +39,7 @@ UI_control control (
 	.o_setCol(dp_setCol)
 );
 
-UI_datapath (
+UI_datapath datapath (
 	.clk(clk),
 	.reset(reset),
 	.i_setX(dp_setX),
