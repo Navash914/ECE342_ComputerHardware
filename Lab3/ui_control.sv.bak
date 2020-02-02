@@ -1,0 +1,10 @@
+module UI_control (
+	input clk,
+	input reset,
+	
+	input i_go,
+	
+	output o_start
+);
+
+endmodule

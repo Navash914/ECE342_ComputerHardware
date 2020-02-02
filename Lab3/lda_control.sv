@@ -10,10 +10,12 @@ module LDA_control (
 	output logic o_step
 );
 
+// States
 enum int unsigned
 {
 	S_REST,
 	S_SETUP,
+	S_SETUP_WAIT,
 	S_STEP
 } state, nextstate;
 
@@ -31,19 +33,28 @@ always_comb begin
 	o_setup = 1'b0;
 	o_step = 1'b0;
 	
-	case (state) begin
+	case (state)
 		S_REST: begin
+			// Wait for start signal
 			if (i_start) nextstate = S_SETUP;
 		end
 		
 		S_SETUP: begin
+			// Let datapath setup values
+			o_setup = 1'b1;
+			nextstate = S_SETUP_WAIT;
+		end
+		
+		S_SETUP_WAIT: begin
+			// Wait an additional clock cycle for setup to finish
 			o_setup = 1'b1;
 			nextstate = S_STEP;
 		end
 		
 		S_STEP: begin
-			o_step = 1'b1;
+			// Let datapath loop until done signal is received
 			if (i_done) nextstate = S_REST;
+			else o_step = 1'b1;
 		end
 	endcase
 end

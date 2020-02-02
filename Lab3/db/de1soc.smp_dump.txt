@@ -1,0 +1,14 @@
+
+State Machine - |de1soc_top|line_drawing_algorithm:LDA|LDA_control:control|state
+Name state.S_STEP state.S_SETUP_WAIT state.S_SETUP state.S_REST 
+state.S_REST 0 0 0 0 
+state.S_SETUP 0 0 1 1 
+state.S_SETUP_WAIT 0 1 0 1 
+state.S_STEP 1 0 0 1 
+
+State Machine - |de1soc_top|user_interface:UI|UI_control:control|state
+Name state.S_WAIT_DONE state.S_GO state.S_GO_WAIT state.S_REST 
+state.S_REST 0 0 0 0 
+state.S_GO_WAIT 0 0 1 1 
+state.S_GO 0 1 0 1 
+state.S_WAIT_DONE 1 0 0 1 

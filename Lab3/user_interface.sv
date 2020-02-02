@@ -23,8 +23,10 @@ module user_interface (
 	output [2:0] o_col
 );
 
+// Logic between control and datapath
 logic dp_setX, dp_setY, dp_setCol;
 
+// Control module
 UI_control control (
 	.clk(clk),
 	.reset(reset),
@@ -39,6 +41,7 @@ UI_control control (
 	.o_setCol(dp_setCol)
 );
 
+// Datapath module
 UI_datapath datapath (
 	.clk(clk),
 	.reset(reset),

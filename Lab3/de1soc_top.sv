@@ -84,8 +84,8 @@ assign val = SW[8:0];
 
 // logic between UI and LDA
 logic start, done;
-logic [8:0] x0, y0;
-logic [7:0] x1, y1;
+logic [8:0] x0, x1;
+logic [7:0] y0, y1;
 logic [2:0] col;
 
 //

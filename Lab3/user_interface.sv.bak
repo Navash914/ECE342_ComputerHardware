@@ -1,0 +1,23 @@
+module UI (
+	// Inputs from user
+	input i_setX,
+	input i_setY,
+	input i_setCol,
+	input i_go,
+	input [8:0] i_val,
+	
+	// Input from LDA
+	input i_done,
+	
+	// Outputs to LDA
+	output o_start,
+	output [8:0] o_x0,
+	output [7:0] o_y0,
+	output [8:0] o_x1,
+	output [7:0] o_y1,
+	output [2:0] o_col
+);
+
+
+
+endmodule

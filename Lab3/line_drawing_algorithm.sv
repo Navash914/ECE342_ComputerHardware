@@ -18,17 +18,20 @@ module line_drawing_algorithm (
 	output o_done
 );
 
+// Logic between control and datapath
 logic dp_setup, dp_step;
 
+// Control module
 LDA_control control (
 	.clk(clk),
 	.reset(reset),
 	.i_start(i_start),
 	.i_done(o_done),
 	.o_setup(dp_setup),
-	.o_step.(dp_step)
+	.o_step(dp_step)
 );
 
+// Datapath module
 LDA_datapath datapath (
 	.clk(clk),
 	.reset(reset),

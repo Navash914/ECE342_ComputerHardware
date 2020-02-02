@@ -18,6 +18,7 @@ module UI_control (
 	output logic o_start
 );
 
+// States
 enum int unsigned
 {
 	S_REST,
@@ -42,8 +43,9 @@ always_comb begin
 	o_setY = 1'b0;
 	o_setCol = 1'b0;
 	
-	case(state) begin
+	case (state)
 		S_REST: begin
+			// Set x, y and color values in this state
 			if (i_go) nextstate = S_GO_WAIT;
 			o_setX = i_setX;
 			o_setY = i_setY;
@@ -51,15 +53,17 @@ always_comb begin
 		end
 		
 		S_GO_WAIT: begin
+			// Wait for user to release button
 			if (~i_go) nextstate = S_GO;
 		end
 		
 		S_GO: begin
-			o_start = 1'b1;
+			o_start = 1'b1;	// Start LDA
 			nextstate = S_WAIT_DONE;
 		end
 		
 		S_WAIT_DONE: begin
+			// Wait for done signal from LDA
 			if (i_done) nextstate = S_REST;
 		end
 	endcase

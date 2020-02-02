@@ -22,18 +22,22 @@ module UI_datapath (
 
 always_ff @(posedge clk or posedge reset) begin
 	if (reset) begin
+		// Zero everything
 		o_x0 <= 9'b0;
 		o_y0 <= 8'b0;
 		o_x1 <= 9'b0;
 		o_y1 <= 8'b0;
 		o_col <= 3'b0;
 	end else begin
-		if (i_setX) o_x1 <= i_val;
-		if (i_setY) o_y1 <= i_val[7:0];
-		if (i_setCol) o_col <= i_val[2:0];
 		if (i_done) begin
+			// Update x0 and y0 to x1 and y1
 			o_x0 <= o_x1;
 			o_y0 <= o_y1;
+		end else begin
+			// Set x, y and color values
+			if (i_setX) o_x1 <= i_val;
+			if (i_setY) o_y1 <= i_val[7:0];
+			if (i_setCol) o_col <= i_val[2:0];
 		end
 	end
 end

@@ -1,0 +1,12 @@
+module LDA_control (
+	input clk,
+	input reset,
+
+	input i_start,
+	
+	output o_done
+);
+
+
+
+endmodule
