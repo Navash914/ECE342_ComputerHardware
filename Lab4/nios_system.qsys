@@ -21,7 +21,7 @@
    {
       datum baseAddress
       {
-         value = "8208";
+         value = "8240";
          type = "String";
       }
    }
@@ -45,7 +45,23 @@
    {
       datum baseAddress
       {
-         value = "8224";
+         value = "8256";
+         type = "String";
+      }
+   }
+   element lda_system
+   {
+      datum _sortIndex
+      {
+         value = "6";
+         type = "int";
+      }
+   }
+   element lda_system.s1
+   {
+      datum baseAddress
+      {
+         value = "8192";
          type = "String";
       }
    }
@@ -103,7 +119,7 @@
    {
       datum baseAddress
       {
-         value = "8192";
+         value = "8224";
          type = "String";
       }
    }
@@ -140,6 +156,22 @@
    internal="switches.external_connection"
    type="conduit"
    dir="end" />
+ <interface name="vga_b" internal="lda_system.vga_b" type="conduit" dir="end" />
+ <interface
+   name="vga_blank_n"
+   internal="lda_system.vga_blank_n"
+   type="conduit"
+   dir="end" />
+ <interface name="vga_clk" internal="lda_system.vga_clk" type="conduit" dir="end" />
+ <interface name="vga_g" internal="lda_system.vga_g" type="conduit" dir="end" />
+ <interface name="vga_hs" internal="lda_system.vga_hs" type="conduit" dir="end" />
+ <interface name="vga_r" internal="lda_system.vga_r" type="conduit" dir="end" />
+ <interface
+   name="vga_sync_n"
+   internal="lda_system.vga_sync_n"
+   type="conduit"
+   dir="end" />
+ <interface name="vga_vs" internal="lda_system.vga_vs" type="conduit" dir="end" />
  <module name="LEDs" kind="altera_avalon_pio" version="18.0" enabled="1">
   <parameter name="bitClearingEdgeCapReg" value="false" />
   <parameter name="bitModifyingOutReg" value="false" />
@@ -179,6 +211,7 @@
   <parameter name="writeBufferDepth" value="64" />
   <parameter name="writeIRQThreshold" value="8" />
  </module>
+ <module name="lda_system" kind="lda_system" version="1.0" enabled="1" />
  <module
    name="nios2_processor"
    kind="altera_nios2_qsys"
@@ -193,7 +226,7 @@
   <parameter name="cpuReset" value="false" />
   <parameter name="customInstSlavesSystemInfo" value="&lt;info/&gt;" />
   <parameter name="dataAddrWidth" value="14" />
-  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory.s1' start='0x0' end='0x1000' /><slave name='nios2_processor.jtag_debug_module' start='0x1800' end='0x2000' /><slave name='switches.s1' start='0x2000' end='0x2010' /><slave name='LEDs.s1' start='0x2010' end='0x2020' /><slave name='jtag_uart.avalon_jtag_slave' start='0x2020' end='0x2028' /></address-map>]]></parameter>
+  <parameter name="dataSlaveMapParam"><![CDATA[<address-map><slave name='onchip_memory.s1' start='0x0' end='0x1000' /><slave name='nios2_processor.jtag_debug_module' start='0x1800' end='0x2000' /><slave name='lda_system.s1' start='0x2000' end='0x2020' /><slave name='switches.s1' start='0x2020' end='0x2030' /><slave name='LEDs.s1' start='0x2030' end='0x2040' /><slave name='jtag_uart.avalon_jtag_slave' start='0x2040' end='0x2048' /></address-map>]]></parameter>
   <parameter name="dcache_bursts" value="false" />
   <parameter name="dcache_lineSize" value="32" />
   <parameter name="dcache_numTCDM" value="0" />
@@ -362,7 +395,7 @@
    start="nios2_processor.data_master"
    end="jtag_uart.avalon_jtag_slave">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2020" />
+  <parameter name="baseAddress" value="0x2040" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -389,7 +422,7 @@
    start="nios2_processor.data_master"
    end="LEDs.s1">
   <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x2010" />
+  <parameter name="baseAddress" value="0x2030" />
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
@@ -397,6 +430,15 @@
    version="18.0"
    start="nios2_processor.data_master"
    end="switches.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x2020" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="18.0"
+   start="nios2_processor.data_master"
+   end="lda_system.s1">
   <parameter name="arbitrationPriority" value="1" />
   <parameter name="baseAddress" value="0x2000" />
   <parameter name="defaultConnection" value="false" />
@@ -432,6 +474,7 @@
    version="18.0"
    start="clk_0.clk"
    end="onchip_memory.clk1" />
+ <connection kind="clock" version="18.0" start="clk_0.clk" end="lda_system.clock" />
  <connection
    kind="interrupt"
    version="18.0"
@@ -450,6 +493,11 @@
    version="18.0"
    start="clk_0.clk_reset"
    end="jtag_uart.reset" />
+ <connection
+   kind="reset"
+   version="18.0"
+   start="clk_0.clk_reset"
+   end="lda_system.reset" />
  <connection
    kind="reset"
    version="18.0"
@@ -475,6 +523,11 @@
    version="18.0"
    start="nios2_processor.jtag_debug_module_reset"
    end="jtag_uart.reset" />
+ <connection
+   kind="reset"
+   version="18.0"
+   start="nios2_processor.jtag_debug_module_reset"
+   end="lda_system.reset" />
  <connection
    kind="reset"
    version="18.0"

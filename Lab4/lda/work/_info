@@ -1,0 +1,242 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/ECE342/Lab4/lda
+vasc_control
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+!s110 1581132552
+!i10b 1
+!s100 5Y6cz3>WkZT1a3XZC5fa>2
+InNLDabF4[53kOQ:VEG=VT0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+!s105 asc_control_sv_unit
+S1
+R0
+w1581132514
+8asc_control.sv
+Fasc_control.sv
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1581132552.000000
+!s107 asc_control.sv|
+!s90 -reportprogress|300|asc_control.sv|
+!i113 1
+Z4 tCvgOpt 0
+vasc_datapath
+R1
+!s110 1581132559
+!i10b 1
+!s100 kUzVh`n[>>_W`ekkOb40Z3
+IYaXa2TKTId`RGKR35Ne2K1
+R2
+!s105 asc_datapath_sv_unit
+S1
+R0
+w1581132477
+8asc_datapath.sv
+Fasc_datapath.sv
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1581132559.000000
+!s107 asc_datapath.sv|
+!s90 -reportprogress|300|asc_datapath.sv|
+!i113 1
+R4
+vavalon_slave_controller
+R1
+!s110 1581132541
+!i10b 1
+!s100 [g]N@C1^C7Hl0cVSKiCj[3
+IWN;]>:]I8L_CBNcaV@YcB2
+R2
+!s105 avalon_slave_controller_sv_unit
+S1
+R0
+w1581131729
+8avalon_slave_controller.sv
+Favalon_slave_controller.sv
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1581132540.000000
+!s107 avalon_slave_controller.sv|
+!s90 -reportprogress|300|avalon_slave_controller.sv|
+!i113 1
+R4
+vLDA_control
+R1
+Z5 !s110 1581132518
+!i10b 1
+!s100 U@8zTJFe6?amHXVVQJ;Ri1
+IVOL8Az:zW4YYMhYUd65I51
+R2
+!s105 lda_control_sv_unit
+S1
+R0
+w1580619300
+8lda_control.sv
+Flda_control.sv
+L0 1
+R3
+r1
+!s85 0
+31
+Z6 !s108 1581132518.000000
+Z7 !s107 vga_output.sv|vga_memory.sv|vga_input.sv|vga_adapter.sv|line_drawing_algorithm.sv|lda_system.sv|lda_datapath.sv|lda_control.sv|avalon_slave_controller.sv|asc_datapath.sv|asc_control.sv|
+Z8 !s90 -reportprogress|300|asc_control.sv|asc_datapath.sv|avalon_slave_controller.sv|lda_control.sv|lda_datapath.sv|lda_system.sv|line_drawing_algorithm.sv|vga_adapter.sv|vga_input.sv|vga_memory.sv|vga_output.sv|
+!i113 1
+R4
+n@l@d@a_control
+vLDA_datapath
+R1
+R5
+!i10b 1
+!s100 M[FgckWm7Y:PS4KQY8kbB0
+I=oQnojD:Cl;fcR8CdkgL62
+R2
+!s105 lda_datapath_sv_unit
+S1
+R0
+w1580619863
+8lda_datapath.sv
+Flda_datapath.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R4
+n@l@d@a_datapath
+vlda_system
+R1
+!s110 1581132569
+!i10b 1
+!s100 z37=X3QF1ZO;0T1H<ChXh1
+IGM80A@fg[O6ISGJ2]DNIj0
+R2
+!s105 lda_system_sv_unit
+S1
+R0
+w1581132324
+8lda_system.sv
+Flda_system.sv
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1581132569.000000
+!s107 lda_system.sv|
+!s90 -reportprogress|300|lda_system.sv|
+!i113 1
+R4
+vline_drawing_algorithm
+R1
+R5
+!i10b 1
+!s100 1GJ04[Q[ONjQ^LL92WJYF3
+I1MWBLUL`mQ?0n6NmaA]Xo3
+R2
+!s105 line_drawing_algorithm_sv_unit
+S1
+R0
+w1580619210
+8line_drawing_algorithm.sv
+Fline_drawing_algorithm.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R4
+vvga_input
+R1
+R5
+!i10b 1
+!s100 ZUzJPA[1D<E[FAMiS5lTn2
+I[@T3^9G0SZObAj1Bo^FkI1
+R2
+Z9 !s105 vga_input_sv_unit
+S1
+R0
+Z10 w1576183829
+8vga_input.sv
+Fvga_input.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R4
+vvga_memory
+R1
+R5
+!i10b 1
+!s100 PO]E7lIM5gWgW8T6oz@GC1
+IBDIXFgMoVfURY<<^anF]J3
+R2
+R9
+S1
+R0
+R10
+8vga_memory.sv
+Fvga_memory.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R4
+vvga_output
+R1
+R5
+!i10b 1
+!s100 DMbVR8lNJI<flK3Hi4RPJ3
+Ic20czFK000AACjG4>lRka0
+R2
+R9
+S1
+R0
+R10
+8vga_output.sv
+Fvga_output.sv
+L0 1
+R3
+r1
+!s85 0
+31
+R6
+R7
+R8
+!i113 1
+R4

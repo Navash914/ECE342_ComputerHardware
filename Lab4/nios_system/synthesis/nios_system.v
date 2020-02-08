@@ -4,10 +4,18 @@
 
 `timescale 1 ps / 1 ps
 module nios_system (
-		input  wire       clk_clk,         //      clk.clk
-		output wire [7:0] leds_export,     //     leds.export
-		input  wire       reset_reset_n,   //    reset.reset_n
-		input  wire [7:0] switches_export  // switches.export
+		input  wire       clk_clk,            //         clk.clk
+		output wire [7:0] leds_export,        //        leds.export
+		input  wire       reset_reset_n,      //       reset.reset_n
+		input  wire [7:0] switches_export,    //    switches.export
+		output wire [7:0] vga_b_export,       //       vga_b.export
+		output wire       vga_blank_n_export, // vga_blank_n.export
+		output wire       vga_clk_export,     //     vga_clk.export
+		output wire [7:0] vga_g_export,       //       vga_g.export
+		output wire       vga_hs_export,      //      vga_hs.export
+		output wire [7:0] vga_r_export,       //       vga_r.export
+		output wire       vga_sync_n_export,  //  vga_sync_n.export
+		output wire       vga_vs_export       //      vga_vs.export
 	);
 
 	wire  [31:0] nios2_processor_data_master_readdata;                            // mm_interconnect_0:nios2_processor_data_master_readdata -> nios2_processor:d_readdata
@@ -51,9 +59,15 @@ module nios_system (
 	wire  [31:0] mm_interconnect_0_leds_s1_writedata;                             // mm_interconnect_0:LEDs_s1_writedata -> LEDs:writedata
 	wire  [31:0] mm_interconnect_0_switches_s1_readdata;                          // switches:readdata -> mm_interconnect_0:switches_s1_readdata
 	wire   [1:0] mm_interconnect_0_switches_s1_address;                           // mm_interconnect_0:switches_s1_address -> switches:address
+	wire  [31:0] mm_interconnect_0_lda_system_s1_readdata;                        // lda_system:avs_s1_readdata -> mm_interconnect_0:lda_system_s1_readdata
+	wire         mm_interconnect_0_lda_system_s1_waitrequest;                     // lda_system:avs_s1_waitrequest -> mm_interconnect_0:lda_system_s1_waitrequest
+	wire   [2:0] mm_interconnect_0_lda_system_s1_address;                         // mm_interconnect_0:lda_system_s1_address -> lda_system:avs_s1_address
+	wire         mm_interconnect_0_lda_system_s1_read;                            // mm_interconnect_0:lda_system_s1_read -> lda_system:avs_s1_read
+	wire         mm_interconnect_0_lda_system_s1_write;                           // mm_interconnect_0:lda_system_s1_write -> lda_system:avs_s1_write
+	wire  [31:0] mm_interconnect_0_lda_system_s1_writedata;                       // mm_interconnect_0:lda_system_s1_writedata -> lda_system:avs_s1_writedata
 	wire         irq_mapper_receiver0_irq;                                        // jtag_uart:av_irq -> irq_mapper:receiver0_irq
 	wire  [31:0] nios2_processor_d_irq_irq;                                       // irq_mapper:sender_irq -> nios2_processor:d_irq
-	wire         rst_controller_reset_out_reset;                                  // rst_controller:reset_out -> [LEDs:reset_n, irq_mapper:reset, jtag_uart:rst_n, mm_interconnect_0:nios2_processor_reset_n_reset_bridge_in_reset_reset, nios2_processor:reset_n, onchip_memory:reset, rst_translator:in_reset, switches:reset_n]
+	wire         rst_controller_reset_out_reset;                                  // rst_controller:reset_out -> [LEDs:reset_n, irq_mapper:reset, jtag_uart:rst_n, lda_system:reset, mm_interconnect_0:nios2_processor_reset_n_reset_bridge_in_reset_reset, nios2_processor:reset_n, onchip_memory:reset, rst_translator:in_reset, switches:reset_n]
 	wire         rst_controller_reset_out_reset_req;                              // rst_controller:reset_req -> [nios2_processor:reset_req, onchip_memory:reset_req, rst_translator:reset_req_in]
 	wire         nios2_processor_jtag_debug_module_reset_reset;                   // nios2_processor:jtag_debug_module_resetrequest -> rst_controller:reset_in1
 
@@ -79,6 +93,25 @@ module nios_system (
 		.av_writedata   (mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata),   //                  .writedata
 		.av_waitrequest (mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest), //                  .waitrequest
 		.av_irq         (irq_mapper_receiver0_irq)                                   //               irq.irq
+	);
+
+	lda_system lda_system (
+		.clk                    (clk_clk),                                     //       clock.clk
+		.reset                  (rst_controller_reset_out_reset),              //       reset.reset
+		.avs_s1_address         (mm_interconnect_0_lda_system_s1_address),     //          s1.address
+		.avs_s1_read            (mm_interconnect_0_lda_system_s1_read),        //            .read
+		.avs_s1_write           (mm_interconnect_0_lda_system_s1_write),       //            .write
+		.avs_s1_readdata        (mm_interconnect_0_lda_system_s1_readdata),    //            .readdata
+		.avs_s1_writedata       (mm_interconnect_0_lda_system_s1_writedata),   //            .writedata
+		.avs_s1_waitrequest     (mm_interconnect_0_lda_system_s1_waitrequest), //            .waitrequest
+		.coe_VGA_R_export       (vga_r_export),                                //       vga_r.export
+		.coe_VGA_G_export       (vga_g_export),                                //       vga_g.export
+		.coe_VGA_B_export       (vga_b_export),                                //       vga_b.export
+		.coe_VGA_HS_export      (vga_hs_export),                               //      vga_hs.export
+		.coe_VGA_VS_export      (vga_vs_export),                               //      vga_vs.export
+		.coe_VGA_SYNC_N_export  (vga_sync_n_export),                           //  vga_sync_n.export
+		.coe_VGA_BLANK_N_export (vga_blank_n_export),                          // vga_blank_n.export
+		.coe_VGA_CLK_export     (vga_clk_export)                               //     vga_clk.export
 	);
 
 	nios_system_nios2_processor nios2_processor (
@@ -154,6 +187,12 @@ module nios_system (
 		.jtag_uart_avalon_jtag_slave_writedata               (mm_interconnect_0_jtag_uart_avalon_jtag_slave_writedata),         //                                              .writedata
 		.jtag_uart_avalon_jtag_slave_waitrequest             (mm_interconnect_0_jtag_uart_avalon_jtag_slave_waitrequest),       //                                              .waitrequest
 		.jtag_uart_avalon_jtag_slave_chipselect              (mm_interconnect_0_jtag_uart_avalon_jtag_slave_chipselect),        //                                              .chipselect
+		.lda_system_s1_address                               (mm_interconnect_0_lda_system_s1_address),                         //                                 lda_system_s1.address
+		.lda_system_s1_write                                 (mm_interconnect_0_lda_system_s1_write),                           //                                              .write
+		.lda_system_s1_read                                  (mm_interconnect_0_lda_system_s1_read),                            //                                              .read
+		.lda_system_s1_readdata                              (mm_interconnect_0_lda_system_s1_readdata),                        //                                              .readdata
+		.lda_system_s1_writedata                             (mm_interconnect_0_lda_system_s1_writedata),                       //                                              .writedata
+		.lda_system_s1_waitrequest                           (mm_interconnect_0_lda_system_s1_waitrequest),                     //                                              .waitrequest
 		.LEDs_s1_address                                     (mm_interconnect_0_leds_s1_address),                               //                                       LEDs_s1.address
 		.LEDs_s1_write                                       (mm_interconnect_0_leds_s1_write),                                 //                                              .write
 		.LEDs_s1_readdata                                    (mm_interconnect_0_leds_s1_readdata),                              //                                              .readdata

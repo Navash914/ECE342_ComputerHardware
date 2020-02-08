@@ -1,0 +1,26 @@
+module lda_system (
+  input clk,
+  input reset,
+
+  // Avalon Slave Signals
+  input [2:0] avs_s1_address,
+  input avs_s1_read,
+  input avs_s1_write,
+  output [31:0] avs_s1_readdata,
+  input [31:0] avs_s1_writedata,
+  output avs_s1_waitrequest,
+
+  // VGA Signals
+  output [7:0] coe_VGA_R_export,
+  output [7:0] coe_VGA_G_export,
+  output [7:0] coe_VGA_B_export,
+  output coe_VGA_HS_export,
+  output coe_VGA_VS_export,
+  output coe_VGA_SYNC_N_export,
+  output coe_VGA_BLANK_N_export,
+  output coe_VGA_CLK_export
+);
+
+
+
+endmodule
