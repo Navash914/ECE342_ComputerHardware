@@ -40,9 +40,6 @@ assign dx = x1 - x0;
 assign dy = y1 > y0 ? y1 - y0 : y0 - y1;
 assign y_step = y1 > y0 ? 2'b1 : -2'b1;
 
-// Datapath does not change color
-assign o_col = i_col;
-
 always_ff @(posedge clk or posedge reset) begin
 	if (reset) begin
 		// Default values
@@ -63,6 +60,9 @@ always_ff @(posedge clk or posedge reset) begin
 			// No plot or done for setup
 			o_plot <= 1'b0;
 			o_done <= 1'b0;
+			
+			// Store color at setup phase
+			o_col <= i_col;
 			if (steep) begin
 				if (i_y0 > i_y1) begin
 					// Values for steep and backward line

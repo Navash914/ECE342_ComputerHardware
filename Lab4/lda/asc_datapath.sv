@@ -25,7 +25,7 @@ module asc_datapath (
 logic [5:0] [31:0] data;
 
 assign o_mode = data[0][0];
-assign data[1][0] = i_status;
+assign data[1] = i_status;
 
 assign o_x0 = data[3][8:0];
 assign o_y0 = data[3][16:9];
@@ -34,6 +34,7 @@ assign o_x1 = data[4][8:0];
 assign o_y1 = data[4][16:9];
 
 assign o_col = data[5][2:0];
+assign o_readdata = data[i_address];
 
 always_ff @(posedge clk or posedge reset) begin
 	if (reset) begin
@@ -42,16 +43,11 @@ always_ff @(posedge clk or posedge reset) begin
 		data[3] <= 0;
 		data[4] <= 0;
 		data[5] <= 0;
-		o_readdata <= 0;
 	end else begin
-		if (i_read) begin
-			o_readdata <= data[i_address];
-		end else begin
-			if (i_ld_mode) data[0] <= i_writedata;
-			if (i_ld_sp) data[3] <= i_writedata;
-			if (i_ld_ep) data[4] <= i_writedata;
-			if (i_ld_col) data[5] <= i_writedata;
-		end
+		if (i_ld_mode) data[0] <= i_writedata;
+		if (i_ld_sp) data[3] <= i_writedata;
+		if (i_ld_ep) data[4] <= i_writedata;
+		if (i_ld_col) data[5] <= i_writedata;
 	end
 end
 

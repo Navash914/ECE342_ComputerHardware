@@ -1,5 +1,5 @@
 Timing Analyzer report for de1soc
-Fri Feb 07 23:04:16 2020
+Sat Feb 08 08:07:47 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -102,27 +102,30 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.45        ;
+; Average used               ; 1.49        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  15.2%      ;
-;     Processor 3            ;  15.0%      ;
-;     Processor 4            ;  14.9%      ;
+;     Processor 2            ;  16.5%      ;
+;     Processor 3            ;  16.4%      ;
+;     Processor 4            ;  16.3%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------+
-; SDC File List                                                                                        ;
-+------------------------------------------------------------------+--------+--------------------------+
-; SDC File Path                                                    ; Status ; Read at                  ;
-+------------------------------------------------------------------+--------+--------------------------+
-; nios_system/synthesis/submodules/altera_reset_controller.sdc     ; OK     ; Fri Feb 07 23:04:02 2020 ;
-; nios_system/synthesis/submodules/nios_system_nios2_processor.sdc ; OK     ; Fri Feb 07 23:04:02 2020 ;
-; nios_system/synthesis/submodules/vga_adapter.sdc                 ; OK     ; Fri Feb 07 23:04:02 2020 ;
-; de1soc.sdc                                                       ; OK     ; Fri Feb 07 23:04:02 2020 ;
-+------------------------------------------------------------------+--------+--------------------------+
++----------------------------------------------------------------------------------------------------------+
+; SDC File List                                                                                            ;
++----------------------------------------------------------------------+--------+--------------------------+
+; SDC File Path                                                        ; Status ; Read at                  ;
++----------------------------------------------------------------------+--------+--------------------------+
+; nios_system_s/synthesis/submodules/altera_reset_controller.sdc       ; OK     ; Sat Feb 08 08:07:30 2020 ;
+; nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc ; OK     ; Sat Feb 08 08:07:30 2020 ;
+; nios_system_s/synthesis/submodules/vga_adapter.sdc                   ; OK     ; Sat Feb 08 08:07:30 2020 ;
+; nios_system/synthesis/submodules/altera_reset_controller.sdc         ; OK     ; Sat Feb 08 08:07:30 2020 ;
+; nios_system/synthesis/submodules/nios_system_nios2_processor.sdc     ; OK     ; Sat Feb 08 08:07:30 2020 ;
+; nios_system/synthesis/submodules/vga_adapter.sdc                     ; OK     ; Sat Feb 08 08:07:30 2020 ;
+; de1soc.sdc                                                           ; OK     ; Sat Feb 08 08:07:30 2020 ;
++----------------------------------------------------------------------+--------+--------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -142,9 +145,9 @@ refer to the applicable agreement for further details.
 +------------+-----------------+-------------------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                                ; Note ;
 +------------+-----------------+-------------------------------------------------------------------------------------------+------+
-; 88.57 MHz  ; 88.57 MHz       ; CLOCK_50                                                                                  ;      ;
-; 112.6 MHz  ; 112.6 MHz       ; altera_reserved_tck                                                                       ;      ;
-; 182.75 MHz ; 182.75 MHz      ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 97.46 MHz  ; 97.46 MHz       ; CLOCK_50                                                                                  ;      ;
+; 102.41 MHz ; 102.41 MHz      ; altera_reserved_tck                                                                       ;      ;
+; 179.6 MHz  ; 179.6 MHz       ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
 +------------+-----------------+-------------------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -160,9 +163,9 @@ HTML report is unavailable in plain text report export.
 +-------------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                                     ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
-; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1.324  ; 0.000         ;
-; CLOCK_50                                                                                  ; 8.710  ; 0.000         ;
-; altera_reserved_tck                                                                       ; 12.226 ; 0.000         ;
+; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1.228  ; 0.000         ;
+; CLOCK_50                                                                                  ; 9.739  ; 0.000         ;
+; altera_reserved_tck                                                                       ; 11.784 ; 0.000         ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -171,9 +174,9 @@ HTML report is unavailable in plain text report export.
 +-------------------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                                     ; Slack ; End Point TNS ;
 +-------------------------------------------------------------------------------------------+-------+---------------+
-; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.174 ; 0.000         ;
-; altera_reserved_tck                                                                       ; 0.281 ; 0.000         ;
-; CLOCK_50                                                                                  ; 0.356 ; 0.000         ;
+; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.170 ; 0.000         ;
+; CLOCK_50                                                                                  ; 0.324 ; 0.000         ;
+; altera_reserved_tck                                                                       ; 0.368 ; 0.000         ;
 +-------------------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -182,8 +185,8 @@ HTML report is unavailable in plain text report export.
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 14.819 ; 0.000         ;
-; CLOCK_50            ; 16.003 ; 0.000         ;
+; altera_reserved_tck ; 14.839 ; 0.000         ;
+; CLOCK_50            ; 15.360 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -192,8 +195,8 @@ HTML report is unavailable in plain text report export.
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; CLOCK_50            ; 0.749 ; 0.000         ;
-; altera_reserved_tck ; 0.901 ; 0.000         ;
+; CLOCK_50            ; 0.633 ; 0.000         ;
+; altera_reserved_tck ; 0.868 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -203,9 +206,9 @@ HTML report is unavailable in plain text report export.
 ; Clock                                                                                     ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
 ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.132  ; 0.000         ;
-; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 2.149  ; 0.000         ;
-; CLOCK_50                                                                                  ; 8.902  ; 0.000         ;
-; altera_reserved_tck                                                                       ; 15.522 ; 0.000         ;
+; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 2.150  ; 0.000         ;
+; CLOCK_50                                                                                  ; 8.912  ; 0.000         ;
+; altera_reserved_tck                                                                       ; 15.545 ; 0.000         ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -218,7 +221,7 @@ Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
 Number of Synchronizer Chains Found: 13
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 0.615
-Worst Case Available Settling Time: 35.145 ns
+Worst Case Available Settling Time: 35.223 ns
 
 Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 79.4
@@ -232,9 +235,9 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +------------+-----------------+-------------------------------------------------------------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                                                                                ; Note ;
 +------------+-----------------+-------------------------------------------------------------------------------------------+------+
-; 90.07 MHz  ; 90.07 MHz       ; CLOCK_50                                                                                  ;      ;
-; 114.35 MHz ; 114.35 MHz      ; altera_reserved_tck                                                                       ;      ;
-; 188.82 MHz ; 188.82 MHz      ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
+; 98.4 MHz   ; 98.4 MHz        ; CLOCK_50                                                                                  ;      ;
+; 103.94 MHz ; 103.94 MHz      ; altera_reserved_tck                                                                       ;      ;
+; 185.01 MHz ; 185.01 MHz      ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ;      ;
 +------------+-----------------+-------------------------------------------------------------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -244,9 +247,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                                     ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
-; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1.500  ; 0.000         ;
-; CLOCK_50                                                                                  ; 8.897  ; 0.000         ;
-; altera_reserved_tck                                                                       ; 12.294 ; 0.000         ;
+; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1.391  ; 0.000         ;
+; CLOCK_50                                                                                  ; 9.837  ; 0.000         ;
+; altera_reserved_tck                                                                       ; 11.856 ; 0.000         ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -255,9 +258,9 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                                     ; Slack ; End Point TNS ;
 +-------------------------------------------------------------------------------------------+-------+---------------+
-; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.117 ; 0.000         ;
-; altera_reserved_tck                                                                       ; 0.280 ; 0.000         ;
-; CLOCK_50                                                                                  ; 0.337 ; 0.000         ;
+; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.118 ; 0.000         ;
+; CLOCK_50                                                                                  ; 0.299 ; 0.000         ;
+; altera_reserved_tck                                                                       ; 0.371 ; 0.000         ;
 +-------------------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -266,8 +269,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 14.972 ; 0.000         ;
-; CLOCK_50            ; 16.166 ; 0.000         ;
+; altera_reserved_tck ; 14.913 ; 0.000         ;
+; CLOCK_50            ; 15.519 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -276,8 +279,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; CLOCK_50            ; 0.718 ; 0.000         ;
-; altera_reserved_tck ; 0.829 ; 0.000         ;
+; CLOCK_50            ; 0.566 ; 0.000         ;
+; altera_reserved_tck ; 0.809 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -288,8 +291,8 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +-------------------------------------------------------------------------------------------+--------+---------------+
 ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.132  ; 0.000         ;
 ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 2.127  ; 0.000         ;
-; CLOCK_50                                                                                  ; 8.933  ; 0.000         ;
-; altera_reserved_tck                                                                       ; 15.516 ; 0.000         ;
+; CLOCK_50                                                                                  ; 8.942  ; 0.000         ;
+; altera_reserved_tck                                                                       ; 15.523 ; 0.000         ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -302,7 +305,7 @@ Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
 Number of Synchronizer Chains Found: 13
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 0.615
-Worst Case Available Settling Time: 35.164 ns
+Worst Case Available Settling Time: 35.241 ns
 
 Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 5.2
@@ -316,9 +319,9 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +-------------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                                     ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
-; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 3.167  ; 0.000         ;
-; CLOCK_50                                                                                  ; 12.240 ; 0.000         ;
-; altera_reserved_tck                                                                       ; 14.408 ; 0.000         ;
+; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 3.240  ; 0.000         ;
+; CLOCK_50                                                                                  ; 13.333 ; 0.000         ;
+; altera_reserved_tck                                                                       ; 14.133 ; 0.000         ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -327,9 +330,9 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +-------------------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                                     ; Slack ; End Point TNS ;
 +-------------------------------------------------------------------------------------------+-------+---------------+
-; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.098 ; 0.000         ;
-; altera_reserved_tck                                                                       ; 0.166 ; 0.000         ;
-; CLOCK_50                                                                                  ; 0.181 ; 0.000         ;
+; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.100 ; 0.000         ;
+; altera_reserved_tck                                                                       ; 0.163 ; 0.000         ;
+; CLOCK_50                                                                                  ; 0.178 ; 0.000         ;
 +-------------------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -338,8 +341,8 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 15.901 ; 0.000         ;
-; CLOCK_50            ; 17.373 ; 0.000         ;
+; altera_reserved_tck ; 15.902 ; 0.000         ;
+; CLOCK_50            ; 16.846 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -348,8 +351,8 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; CLOCK_50            ; 0.413 ; 0.000         ;
-; altera_reserved_tck ; 0.463 ; 0.000         ;
+; CLOCK_50            ; 0.344 ; 0.000         ;
+; altera_reserved_tck ; 0.428 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -360,8 +363,8 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +-------------------------------------------------------------------------------------------+--------+---------------+
 ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.132  ; 0.000         ;
 ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 2.271  ; 0.000         ;
-; CLOCK_50                                                                                  ; 8.507  ; 0.000         ;
-; altera_reserved_tck                                                                       ; 15.434 ; 0.000         ;
+; CLOCK_50                                                                                  ; 8.513  ; 0.000         ;
+; altera_reserved_tck                                                                       ; 15.451 ; 0.000         ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -374,7 +377,7 @@ Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
 Number of Synchronizer Chains Found: 13
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 0.615
-Worst Case Available Settling Time: 37.042 ns
+Worst Case Available Settling Time: 37.070 ns
 
 Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 79.4
@@ -388,9 +391,9 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +-------------------------------------------------------------------------------------------+--------+---------------+
 ; Clock                                                                                     ; Slack  ; End Point TNS ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
-; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 3.533  ; 0.000         ;
-; CLOCK_50                                                                                  ; 13.244 ; 0.000         ;
-; altera_reserved_tck                                                                       ; 14.705 ; 0.000         ;
+; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 3.577  ; 0.000         ;
+; CLOCK_50                                                                                  ; 14.006 ; 0.000         ;
+; altera_reserved_tck                                                                       ; 14.464 ; 0.000         ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -399,9 +402,9 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +-------------------------------------------------------------------------------------------+-------+---------------+
 ; Clock                                                                                     ; Slack ; End Point TNS ;
 +-------------------------------------------------------------------------------------------+-------+---------------+
-; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.060 ; 0.000         ;
-; altera_reserved_tck                                                                       ; 0.140 ; 0.000         ;
-; CLOCK_50                                                                                  ; 0.170 ; 0.000         ;
+; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 0.064 ; 0.000         ;
+; altera_reserved_tck                                                                       ; 0.135 ; 0.000         ;
+; CLOCK_50                                                                                  ; 0.166 ; 0.000         ;
 +-------------------------------------------------------------------------------------------+-------+---------------+
 
 
@@ -410,8 +413,8 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +---------------------+--------+---------------+
 ; Clock               ; Slack  ; End Point TNS ;
 +---------------------+--------+---------------+
-; altera_reserved_tck ; 16.084 ; 0.000         ;
-; CLOCK_50            ; 17.650 ; 0.000         ;
+; altera_reserved_tck ; 16.090 ; 0.000         ;
+; CLOCK_50            ; 17.211 ; 0.000         ;
 +---------------------+--------+---------------+
 
 
@@ -420,8 +423,8 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +---------------------+-------+---------------+
 ; Clock               ; Slack ; End Point TNS ;
 +---------------------+-------+---------------+
-; CLOCK_50            ; 0.375 ; 0.000         ;
-; altera_reserved_tck ; 0.402 ; 0.000         ;
+; CLOCK_50            ; 0.279 ; 0.000         ;
+; altera_reserved_tck ; 0.377 ; 0.000         ;
 +---------------------+-------+---------------+
 
 
@@ -432,8 +435,8 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +-------------------------------------------------------------------------------------------+--------+---------------+
 ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; 1.132  ; 0.000         ;
 ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 2.277  ; 0.000         ;
-; CLOCK_50                                                                                  ; 8.463  ; 0.000         ;
-; altera_reserved_tck                                                                       ; 15.424 ; 0.000         ;
+; CLOCK_50                                                                                  ; 8.467  ; 0.000         ;
+; altera_reserved_tck                                                                       ; 15.431 ; 0.000         ;
 +-------------------------------------------------------------------------------------------+--------+---------------+
 
 
@@ -446,7 +449,7 @@ Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
 Number of Synchronizer Chains Found: 13
 Shortest Synchronizer Chain: 2 Registers
 Fraction of Chains for which MTBFs Could Not be Calculated: 0.615
-Worst Case Available Settling Time: 37.263 ns
+Worst Case Available Settling Time: 37.279 ns
 
 Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 5.2
@@ -460,11 +463,11 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +--------------------------------------------------------------------------------------------+--------+-------+----------+---------+---------------------+
 ; Clock                                                                                      ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +--------------------------------------------------------------------------------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack                                                                           ; 1.324  ; 0.060 ; 14.819   ; 0.375   ; 1.132               ;
-;  CLOCK_50                                                                                  ; 8.710  ; 0.170 ; 16.003   ; 0.375   ; 8.463               ;
-;  altera_reserved_tck                                                                       ; 12.226 ; 0.140 ; 14.819   ; 0.402   ; 15.424              ;
+; Worst-case Slack                                                                           ; 1.228  ; 0.064 ; 14.839   ; 0.279   ; 1.132               ;
+;  CLOCK_50                                                                                  ; 9.739  ; 0.166 ; 15.360   ; 0.279   ; 8.467               ;
+;  altera_reserved_tck                                                                       ; 11.784 ; 0.135 ; 14.839   ; 0.377   ; 15.431              ;
 ;  u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0]   ; N/A    ; N/A   ; N/A      ; N/A     ; 1.132               ;
-;  u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1.324  ; 0.060 ; N/A      ; N/A     ; 2.127               ;
+;  u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1.228  ; 0.064 ; N/A      ; N/A     ; 2.127               ;
 ; Design-wide TNS                                                                            ; 0.0    ; 0.0   ; 0.0      ; 0.0     ; 0.0                 ;
 ;  CLOCK_50                                                                                  ; 0.000  ; 0.000 ; 0.000    ; 0.000   ; 0.000               ;
 ;  altera_reserved_tck                                                                       ; 0.000  ; 0.000 ; 0.000    ; 0.000   ; 0.000               ;
@@ -954,12 +957,12 @@ Typical MTBF values are calculated based on the nominal silicon characteristics,
 +-------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------+------------+------------+----------+----------+
 ; From Clock                                                                                ; To Clock                                                                                  ; RR Paths   ; FR Paths   ; RF Paths ; FF Paths ;
 +-------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------+------------+------------+----------+----------+
-; altera_reserved_tck                                                                       ; altera_reserved_tck                                                                       ; 1484       ; 0          ; 38       ; 3        ;
+; altera_reserved_tck                                                                       ; altera_reserved_tck                                                                       ; 1484       ; 0          ; 42       ; 4        ;
 ; CLOCK_50                                                                                  ; altera_reserved_tck                                                                       ; false path ; 0          ; 0        ; 0        ;
 ; altera_reserved_tck                                                                       ; CLOCK_50                                                                                  ; false path ; false path ; 0        ; 0        ;
-; CLOCK_50                                                                                  ; CLOCK_50                                                                                  ; 310961     ; 0          ; 0        ; 0        ;
+; CLOCK_50                                                                                  ; CLOCK_50                                                                                  ; 305659     ; 0          ; 0        ; 0        ;
 ; CLOCK_50                                                                                  ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1          ; 0          ; 0        ; 0        ;
-; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 3242       ; 0          ; 0        ; 0        ;
+; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 3246       ; 0          ; 0        ; 0        ;
 +-------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------+------------+------------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -969,12 +972,12 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +-------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------+------------+------------+----------+----------+
 ; From Clock                                                                                ; To Clock                                                                                  ; RR Paths   ; FR Paths   ; RF Paths ; FF Paths ;
 +-------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------+------------+------------+----------+----------+
-; altera_reserved_tck                                                                       ; altera_reserved_tck                                                                       ; 1484       ; 0          ; 38       ; 3        ;
+; altera_reserved_tck                                                                       ; altera_reserved_tck                                                                       ; 1484       ; 0          ; 42       ; 4        ;
 ; CLOCK_50                                                                                  ; altera_reserved_tck                                                                       ; false path ; 0          ; 0        ; 0        ;
 ; altera_reserved_tck                                                                       ; CLOCK_50                                                                                  ; false path ; false path ; 0        ; 0        ;
-; CLOCK_50                                                                                  ; CLOCK_50                                                                                  ; 310961     ; 0          ; 0        ; 0        ;
+; CLOCK_50                                                                                  ; CLOCK_50                                                                                  ; 305659     ; 0          ; 0        ; 0        ;
 ; CLOCK_50                                                                                  ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 1          ; 0          ; 0        ; 0        ;
-; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 3242       ; 0          ; 0        ; 0        ;
+; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 3246       ; 0          ; 0        ; 0        ;
 +-------------------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------+------------+------------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -984,9 +987,9 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +---------------------+-------------------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock          ; To Clock                                                                                  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +---------------------+-------------------------------------------------------------------------------------------+----------+----------+----------+----------+
-; altera_reserved_tck ; altera_reserved_tck                                                                       ; 73       ; 0        ; 2        ; 0        ;
-; CLOCK_50            ; CLOCK_50                                                                                  ; 872      ; 0        ; 0        ; 0        ;
-; CLOCK_50            ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 85       ; 0        ; 0        ; 0        ;
+; altera_reserved_tck ; altera_reserved_tck                                                                       ; 71       ; 0        ; 3        ; 0        ;
+; CLOCK_50            ; CLOCK_50                                                                                  ; 834      ; 0        ; 0        ; 0        ;
+; CLOCK_50            ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 86       ; 0        ; 0        ; 0        ;
 +---------------------+-------------------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -996,9 +999,9 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +---------------------+-------------------------------------------------------------------------------------------+----------+----------+----------+----------+
 ; From Clock          ; To Clock                                                                                  ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +---------------------+-------------------------------------------------------------------------------------------+----------+----------+----------+----------+
-; altera_reserved_tck ; altera_reserved_tck                                                                       ; 73       ; 0        ; 2        ; 0        ;
-; CLOCK_50            ; CLOCK_50                                                                                  ; 872      ; 0        ; 0        ; 0        ;
-; CLOCK_50            ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 85       ; 0        ; 0        ; 0        ;
+; altera_reserved_tck ; altera_reserved_tck                                                                       ; 71       ; 0        ; 3        ; 0        ;
+; CLOCK_50            ; CLOCK_50                                                                                  ; 834      ; 0        ; 0        ; 0        ;
+; CLOCK_50            ; u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk ; 86       ; 0        ; 0        ; 0        ;
 +---------------------+-------------------------------------------------------------------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -1173,9 +1176,32 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
-    Info: Processing started: Fri Feb 07 23:03:58 2020
+    Info: Processing started: Sat Feb 08 08:07:27 2020
 Info: Command: quartus_sta de1soc -c de1soc
 Info: qsta_default_script.tcl version: #2
+Warning (20013): Ignored 34 assignments for entity "altera_merlin_traffic_limiter" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_system_s" -- entity does not exist in design
+Warning (20013): Ignored 22 assignments for entity "nios_system_s_LEDs" -- entity does not exist in design
+Warning (20013): Ignored 14 assignments for entity "nios_system_s_irq_mapper" -- entity does not exist in design
+Warning (20013): Ignored 24 assignments for entity "nios_system_s_jtag_uart" -- entity does not exist in design
+Warning (20013): Ignored 12 assignments for entity "nios_system_s_mm_interconnect_0" -- entity does not exist in design
+Warning (20013): Ignored 32 assignments for entity "nios_system_s_mm_interconnect_0_avalon_st_adapter" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_system_s_mm_interconnect_0_avalon_st_adapter_error_adapter_0" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_system_s_mm_interconnect_0_cmd_demux" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_system_s_mm_interconnect_0_cmd_demux_001" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_system_s_mm_interconnect_0_cmd_mux" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_system_s_mm_interconnect_0_cmd_mux_001" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_system_s_mm_interconnect_0_router" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_system_s_mm_interconnect_0_router_001" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_system_s_mm_interconnect_0_router_002" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_system_s_mm_interconnect_0_router_003" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_system_s_mm_interconnect_0_rsp_demux" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_system_s_mm_interconnect_0_rsp_demux_001" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_system_s_mm_interconnect_0_rsp_mux" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_system_s_mm_interconnect_0_rsp_mux_001" -- entity does not exist in design
+Warning (20013): Ignored 104 assignments for entity "nios_system_s_nios2_processor" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_system_s_onchip_memory" -- entity does not exist in design
+Warning (20013): Ignored 23 assignments for entity "nios_system_s_switches" -- entity does not exist in design
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (21077): Low junction temperature is 0 degrees C
@@ -1214,6 +1240,44 @@ Info (332164): Evaluating HDL-embedded SDC commands
         Info (332166): create_clock -name altera_reserved_tck [get_ports {altera_reserved_tck}] -period 30MHz   
         Info (332166): if { [string equal quartus_fit $::TimeQuestInfo(nameofexecutable)] } { set_max_delay -to [get_ports { altera_reserved_tdo } ] 0 }
         Info (332166): set_clock_groups -asynchronous -group {altera_reserved_tck}
+Info (332104): Reading SDC File: 'nios_system_s/synthesis/submodules/altera_reset_controller.sdc'
+Info (332104): Reading SDC File: 'nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc'
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(46): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_nios2_oci_break:the_nios_system_s_nios2_processor_nios2_oci_break|break_readreg* could not be matched with a keeper File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 46
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(46): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_jtag_debug_module_wrapper:the_nios_system_s_nios2_processor_jtag_debug_module_wrapper|nios_system_s_nios2_processor_jtag_debug_module_tck:the_nios_system_s_nios2_processor_jtag_debug_module_tck|*sr* could not be matched with a keeper File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 46
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(46): Argument <from> is an empty collection File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 46
+    Info (332050): set_false_path -from [get_keepers *$nios_system_s_nios2_processor_oci_break_path|break_readreg*] -to [get_keepers *$nios_system_s_nios2_processor_jtag_sr*] File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 46
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(46): Argument <to> is an empty collection File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 46
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(47): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_nios2_oci_debug:the_nios_system_s_nios2_processor_nios2_oci_debug|*resetlatch could not be matched with a keeper File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 47
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(47): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_jtag_debug_module_wrapper:the_nios_system_s_nios2_processor_jtag_debug_module_wrapper|nios_system_s_nios2_processor_jtag_debug_module_tck:the_nios_system_s_nios2_processor_jtag_debug_module_tck|*sr[33] could not be matched with a keeper File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 47
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(47): Argument <from> is an empty collection File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 47
+    Info (332050): set_false_path -from [get_keepers *$nios_system_s_nios2_processor_oci_debug_path|*resetlatch]     -to [get_keepers *$nios_system_s_nios2_processor_jtag_sr[33]] File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 47
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(47): Argument <to> is an empty collection File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 47
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(48): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_nios2_oci_debug:the_nios_system_s_nios2_processor_nios2_oci_debug|monitor_ready could not be matched with a keeper File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 48
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(48): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_jtag_debug_module_wrapper:the_nios_system_s_nios2_processor_jtag_debug_module_wrapper|nios_system_s_nios2_processor_jtag_debug_module_tck:the_nios_system_s_nios2_processor_jtag_debug_module_tck|*sr[0] could not be matched with a keeper File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 48
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(48): Argument <from> is an empty collection File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 48
+    Info (332050): set_false_path -from [get_keepers *$nios_system_s_nios2_processor_oci_debug_path|monitor_ready]  -to [get_keepers *$nios_system_s_nios2_processor_jtag_sr[0]] File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 48
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(48): Argument <to> is an empty collection File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 48
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(49): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_nios2_oci_debug:the_nios_system_s_nios2_processor_nios2_oci_debug|monitor_error could not be matched with a keeper File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 49
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(49): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_jtag_debug_module_wrapper:the_nios_system_s_nios2_processor_jtag_debug_module_wrapper|nios_system_s_nios2_processor_jtag_debug_module_tck:the_nios_system_s_nios2_processor_jtag_debug_module_tck|*sr[34] could not be matched with a keeper File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 49
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(49): Argument <from> is an empty collection File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 49
+    Info (332050): set_false_path -from [get_keepers *$nios_system_s_nios2_processor_oci_debug_path|monitor_error]  -to [get_keepers *$nios_system_s_nios2_processor_jtag_sr[34]] File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 49
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(49): Argument <to> is an empty collection File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 49
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(50): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_nios2_ocimem:the_nios_system_s_nios2_processor_nios2_ocimem|*MonDReg* could not be matched with a keeper File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 50
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(50): Argument <from> is an empty collection File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 50
+    Info (332050): set_false_path -from [get_keepers *$nios_system_s_nios2_processor_ocimem_path|*MonDReg*] -to [get_keepers *$nios_system_s_nios2_processor_jtag_sr*] File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 50
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(50): Argument <to> is an empty collection File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 50
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(51): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_jtag_debug_module_wrapper:the_nios_system_s_nios2_processor_jtag_debug_module_wrapper|nios_system_s_nios2_processor_jtag_debug_module_tck:the_nios_system_s_nios2_processor_jtag_debug_module_tck|*sr* could not be matched with a clock or keeper or register or port or pin or cell or partition File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 51
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(51): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_jtag_debug_module_wrapper:the_nios_system_s_nios2_processor_jtag_debug_module_wrapper|nios_system_s_nios2_processor_jtag_debug_module_sysclk:the_nios_system_s_nios2_processor_jtag_debug_module_sysclk|*jdo* could not be matched with a clock or keeper or register or port or pin or cell or partition File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 51
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(51): Argument <from> is not an object ID File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 51
+    Info (332050): set_false_path -from *$nios_system_s_nios2_processor_jtag_sr*    -to *$nios_system_s_nios2_processor_jtag_sysclk_path|*jdo* File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 51
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(51): Argument <to> is not an object ID File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 51
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(52): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_jtag_debug_module_wrapper:the_nios_system_s_nios2_processor_jtag_debug_module_wrapper|nios_system_s_nios2_processor_jtag_debug_module_sysclk:the_nios_system_s_nios2_processor_jtag_debug_module_sysclk|ir* could not be matched with a clock or keeper or register or port or pin or cell or partition File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 52
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(52): Argument <to> is not an object ID File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 52
+    Info (332050): set_false_path -from sld_hub:*|irf_reg* -to *$nios_system_s_nios2_processor_jtag_sysclk_path|ir* File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 52
+Warning (332174): Ignored filter at nios_system_s_nios2_processor.sdc(53): *nios_system_s_nios2_processor:*|nios_system_s_nios2_processor_nios2_oci:the_nios_system_s_nios2_processor_nios2_oci|nios_system_s_nios2_processor_nios2_oci_debug:the_nios_system_s_nios2_processor_nios2_oci_debug|monitor_go could not be matched with a clock or keeper or register or port or pin or cell or partition File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 53
+Warning (332049): Ignored set_false_path at nios_system_s_nios2_processor.sdc(53): Argument <to> is not an object ID File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 53
+    Info (332050): set_false_path -from sld_hub:*|sld_shadow_jsm:shadow_jsm|state[1] -to *$nios_system_s_nios2_processor_oci_debug_path|monitor_go File: E:/ECE342/Lab4/nios_system_s/synthesis/submodules/nios_system_s_nios2_processor.sdc Line: 53
+Info (332104): Reading SDC File: 'nios_system_s/synthesis/submodules/vga_adapter.sdc'
 Info (332104): Reading SDC File: 'nios_system/synthesis/submodules/altera_reset_controller.sdc'
 Info (332104): Reading SDC File: 'nios_system/synthesis/submodules/nios_system_nios2_processor.sdc'
 Info (332104): Reading SDC File: 'nios_system/synthesis/submodules/vga_adapter.sdc'
@@ -1233,35 +1297,35 @@ Info (332143): No user constrained clock uncertainty found in the design. Callin
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
-Info (332146): Worst-case setup slack is 1.324
+Info (332146): Worst-case setup slack is 1.228
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.324               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     8.710               0.000 CLOCK_50 
-    Info (332119):    12.226               0.000 altera_reserved_tck 
-Info (332146): Worst-case hold slack is 0.174
+    Info (332119):     1.228               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     9.739               0.000 CLOCK_50 
+    Info (332119):    11.784               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.170
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.174               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.281               0.000 altera_reserved_tck 
-    Info (332119):     0.356               0.000 CLOCK_50 
-Info (332146): Worst-case recovery slack is 14.819
+    Info (332119):     0.170               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.324               0.000 CLOCK_50 
+    Info (332119):     0.368               0.000 altera_reserved_tck 
+Info (332146): Worst-case recovery slack is 14.839
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    14.819               0.000 altera_reserved_tck 
-    Info (332119):    16.003               0.000 CLOCK_50 
-Info (332146): Worst-case removal slack is 0.749
+    Info (332119):    14.839               0.000 altera_reserved_tck 
+    Info (332119):    15.360               0.000 CLOCK_50 
+Info (332146): Worst-case removal slack is 0.633
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.749               0.000 CLOCK_50 
-    Info (332119):     0.901               0.000 altera_reserved_tck 
+    Info (332119):     0.633               0.000 CLOCK_50 
+    Info (332119):     0.868               0.000 altera_reserved_tck 
 Info (332146): Worst-case minimum pulse width slack is 1.132
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     1.132               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
-    Info (332119):     2.149               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     8.902               0.000 CLOCK_50 
-    Info (332119):    15.522               0.000 altera_reserved_tck 
+    Info (332119):     2.150               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     8.912               0.000 CLOCK_50 
+    Info (332119):    15.545               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 13 synchronizer chains.
     Info (332114): Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
     Info (332114): Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
@@ -1269,7 +1333,7 @@ Info (332114): Report Metastability: Found 13 synchronizer chains.
     Info (332114): Number of Synchronizer Chains Found: 13
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 0.615
-    Info (332114): Worst Case Available Settling Time: 35.145 ns
+    Info (332114): Worst Case Available Settling Time: 35.223 ns
     Info (332114): 
     Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
     Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 79.4
@@ -1284,35 +1348,35 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
     Info (332098): Cell: u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
     Info (332098): From: u0|nios2_processor|the_nios_system_nios2_processor_nios2_oci|the_nios_system_nios2_processor_nios2_ocimem|nios_system_nios2_processor_ociram_sp_ram|the_altsyncram|auto_generated|ram_block1a8|clk0  to: nios_system:u0|nios_system_nios2_processor:nios2_processor|nios_system_nios2_processor_nios2_oci:the_nios_system_nios2_processor_nios2_oci|nios_system_nios2_processor_nios2_ocimem:the_nios_system_nios2_processor_nios2_ocimem|nios_system_nios2_processor_ociram_sp_ram_module:nios_system_nios2_processor_ociram_sp_ram|altsyncram:the_altsyncram|altsyncram_38g1:auto_generated|ram_block1a8~CLOCK1_ENABLE1_0
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Info (332146): Worst-case setup slack is 1.500
+Info (332146): Worst-case setup slack is 1.391
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     1.500               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     8.897               0.000 CLOCK_50 
-    Info (332119):    12.294               0.000 altera_reserved_tck 
-Info (332146): Worst-case hold slack is 0.117
+    Info (332119):     1.391               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     9.837               0.000 CLOCK_50 
+    Info (332119):    11.856               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.118
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.117               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.280               0.000 altera_reserved_tck 
-    Info (332119):     0.337               0.000 CLOCK_50 
-Info (332146): Worst-case recovery slack is 14.972
+    Info (332119):     0.118               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.299               0.000 CLOCK_50 
+    Info (332119):     0.371               0.000 altera_reserved_tck 
+Info (332146): Worst-case recovery slack is 14.913
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    14.972               0.000 altera_reserved_tck 
-    Info (332119):    16.166               0.000 CLOCK_50 
-Info (332146): Worst-case removal slack is 0.718
+    Info (332119):    14.913               0.000 altera_reserved_tck 
+    Info (332119):    15.519               0.000 CLOCK_50 
+Info (332146): Worst-case removal slack is 0.566
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.718               0.000 CLOCK_50 
-    Info (332119):     0.829               0.000 altera_reserved_tck 
+    Info (332119):     0.566               0.000 CLOCK_50 
+    Info (332119):     0.809               0.000 altera_reserved_tck 
 Info (332146): Worst-case minimum pulse width slack is 1.132
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     1.132               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):     2.127               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     8.933               0.000 CLOCK_50 
-    Info (332119):    15.516               0.000 altera_reserved_tck 
+    Info (332119):     8.942               0.000 CLOCK_50 
+    Info (332119):    15.523               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 13 synchronizer chains.
     Info (332114): Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
     Info (332114): Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
@@ -1320,7 +1384,7 @@ Info (332114): Report Metastability: Found 13 synchronizer chains.
     Info (332114): Number of Synchronizer Chains Found: 13
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 0.615
-    Info (332114): Worst Case Available Settling Time: 35.164 ns
+    Info (332114): Worst Case Available Settling Time: 35.241 ns
     Info (332114): 
     Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
     Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 5.2
@@ -1335,35 +1399,35 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
     Info (332098): Cell: u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
     Info (332098): From: u0|nios2_processor|the_nios_system_nios2_processor_nios2_oci|the_nios_system_nios2_processor_nios2_ocimem|nios_system_nios2_processor_ociram_sp_ram|the_altsyncram|auto_generated|ram_block1a8|clk0  to: nios_system:u0|nios_system_nios2_processor:nios2_processor|nios_system_nios2_processor_nios2_oci:the_nios_system_nios2_processor_nios2_oci|nios_system_nios2_processor_nios2_ocimem:the_nios_system_nios2_processor_nios2_ocimem|nios_system_nios2_processor_ociram_sp_ram_module:nios_system_nios2_processor_ociram_sp_ram|altsyncram:the_altsyncram|altsyncram_38g1:auto_generated|ram_block1a8~CLOCK1_ENABLE1_0
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Info (332146): Worst-case setup slack is 3.167
+Info (332146): Worst-case setup slack is 3.240
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     3.167               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    12.240               0.000 CLOCK_50 
-    Info (332119):    14.408               0.000 altera_reserved_tck 
-Info (332146): Worst-case hold slack is 0.098
+    Info (332119):     3.240               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    13.333               0.000 CLOCK_50 
+    Info (332119):    14.133               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.100
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.098               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.166               0.000 altera_reserved_tck 
-    Info (332119):     0.181               0.000 CLOCK_50 
-Info (332146): Worst-case recovery slack is 15.901
+    Info (332119):     0.100               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.163               0.000 altera_reserved_tck 
+    Info (332119):     0.178               0.000 CLOCK_50 
+Info (332146): Worst-case recovery slack is 15.902
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    15.901               0.000 altera_reserved_tck 
-    Info (332119):    17.373               0.000 CLOCK_50 
-Info (332146): Worst-case removal slack is 0.413
+    Info (332119):    15.902               0.000 altera_reserved_tck 
+    Info (332119):    16.846               0.000 CLOCK_50 
+Info (332146): Worst-case removal slack is 0.344
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.413               0.000 CLOCK_50 
-    Info (332119):     0.463               0.000 altera_reserved_tck 
+    Info (332119):     0.344               0.000 CLOCK_50 
+    Info (332119):     0.428               0.000 altera_reserved_tck 
 Info (332146): Worst-case minimum pulse width slack is 1.132
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     1.132               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):     2.271               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     8.507               0.000 CLOCK_50 
-    Info (332119):    15.434               0.000 altera_reserved_tck 
+    Info (332119):     8.513               0.000 CLOCK_50 
+    Info (332119):    15.451               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 13 synchronizer chains.
     Info (332114): Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
     Info (332114): Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
@@ -1371,7 +1435,7 @@ Info (332114): Report Metastability: Found 13 synchronizer chains.
     Info (332114): Number of Synchronizer Chains Found: 13
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 0.615
-    Info (332114): Worst Case Available Settling Time: 37.042 ns
+    Info (332114): Worst Case Available Settling Time: 37.070 ns
     Info (332114): 
     Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
     Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 79.4
@@ -1384,35 +1448,35 @@ Info (332097): The following timing edges are non-unate.  The Timing Analyzer wi
     Info (332098): Cell: u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_REFCLK_SELECT  from: clkin[0]  to: clkout
     Info (332098): From: u0|nios2_processor|the_nios_system_nios2_processor_nios2_oci|the_nios_system_nios2_processor_nios2_ocimem|nios_system_nios2_processor_ociram_sp_ram|the_altsyncram|auto_generated|ram_block1a8|clk0  to: nios_system:u0|nios_system_nios2_processor:nios2_processor|nios_system_nios2_processor_nios2_oci:the_nios_system_nios2_processor_nios2_oci|nios_system_nios2_processor_nios2_ocimem:the_nios_system_nios2_processor_nios2_ocimem|nios_system_nios2_processor_ociram_sp_ram_module:nios_system_nios2_processor_ociram_sp_ram|altsyncram:the_altsyncram|altsyncram_38g1:auto_generated|ram_block1a8~CLOCK1_ENABLE1_0
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Info (332146): Worst-case setup slack is 3.533
+Info (332146): Worst-case setup slack is 3.577
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     3.533               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):    13.244               0.000 CLOCK_50 
-    Info (332119):    14.705               0.000 altera_reserved_tck 
-Info (332146): Worst-case hold slack is 0.060
+    Info (332119):     3.577               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):    14.006               0.000 CLOCK_50 
+    Info (332119):    14.464               0.000 altera_reserved_tck 
+Info (332146): Worst-case hold slack is 0.064
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.060               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     0.140               0.000 altera_reserved_tck 
-    Info (332119):     0.170               0.000 CLOCK_50 
-Info (332146): Worst-case recovery slack is 16.084
+    Info (332119):     0.064               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
+    Info (332119):     0.135               0.000 altera_reserved_tck 
+    Info (332119):     0.166               0.000 CLOCK_50 
+Info (332146): Worst-case recovery slack is 16.090
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    16.084               0.000 altera_reserved_tck 
-    Info (332119):    17.650               0.000 CLOCK_50 
-Info (332146): Worst-case removal slack is 0.375
+    Info (332119):    16.090               0.000 altera_reserved_tck 
+    Info (332119):    17.211               0.000 CLOCK_50 
+Info (332146): Worst-case removal slack is 0.279
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.375               0.000 CLOCK_50 
-    Info (332119):     0.402               0.000 altera_reserved_tck 
+    Info (332119):     0.279               0.000 CLOCK_50 
+    Info (332119):     0.377               0.000 altera_reserved_tck 
 Info (332146): Worst-case minimum pulse width slack is 1.132
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     1.132               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~FRACTIONAL_PLL|vcoph[0] 
     Info (332119):     2.277               0.000 u0|lda_system|vga_inst|vgapll_inst|altera_pll_i|general[0].gpll~PLL_OUTPUT_COUNTER|divclk 
-    Info (332119):     8.463               0.000 CLOCK_50 
-    Info (332119):    15.424               0.000 altera_reserved_tck 
+    Info (332119):     8.467               0.000 CLOCK_50 
+    Info (332119):    15.431               0.000 altera_reserved_tck 
 Info (332114): Report Metastability: Found 13 synchronizer chains.
     Info (332114): Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
     Info (332114): Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
@@ -1420,7 +1484,7 @@ Info (332114): Report Metastability: Found 13 synchronizer chains.
     Info (332114): Number of Synchronizer Chains Found: 13
     Info (332114): Shortest Synchronizer Chain: 2 Registers
     Info (332114): Fraction of Chains for which MTBFs Could Not be Calculated: 0.615
-    Info (332114): Worst Case Available Settling Time: 37.263 ns
+    Info (332114): Worst Case Available Settling Time: 37.279 ns
     Info (332114): 
     Info (332114): Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
     Info (332114):   - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 5.2
@@ -1428,10 +1492,10 @@ Info (332114): Report Metastability: Found 13 synchronizer chains.
     Info (332114):   - Under typical conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 17.8
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus Prime Timing Analyzer was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 5473 megabytes
-    Info: Processing ended: Fri Feb 07 23:04:16 2020
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:23
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 53 warnings
+    Info: Peak virtual memory: 5483 megabytes
+    Info: Processing ended: Sat Feb 08 08:07:47 2020
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:27
 
 

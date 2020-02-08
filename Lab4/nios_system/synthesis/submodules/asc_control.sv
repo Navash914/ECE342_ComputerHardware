@@ -77,6 +77,16 @@ always_comb begin
 		S_RUN: begin
 			o_status = 1'b1;
 			if (~i_mode) o_waitrequest = 1'b1;
+			else if (i_write) begin
+				// Allow writing start/end points and color
+				// even when LDA is still running
+				case (i_address)
+					START_POINT: o_ld_sp = 1'b1;
+					END_POINT: o_ld_ep = 1'b1;
+					COLOR: o_ld_col = 1'b1;
+					default: ;	// Do nothing
+				endcase
+			end
 			if (i_done) begin
 				if (i_mode) nextstate = S_REST;
 				else nextstate = S_WAIT;

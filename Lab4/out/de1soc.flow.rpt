@@ -1,5 +1,5 @@
 Flow report for de1soc
-Fri Feb 07 23:04:16 2020
+Sat Feb 08 08:07:47 2020
 Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Fri Feb 07 23:03:56 2020       ;
+; Flow Status                     ; Successful - Sat Feb 08 08:07:25 2020       ;
 ; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Lite Edition ;
 ; Revision Name                   ; de1soc                                      ;
 ; Top-level Entity Name           ; de1soc_top                                  ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 1,131 / 32,070 ( 4 % )                      ;
-; Total registers                 ; 1502                                        ;
+; Logic utilization (in ALMs)     ; 1,134 / 32,070 ( 4 % )                      ;
+; Total registers                 ; 1466                                        ;
 ; Total pins                      ; 96 / 457 ( 21 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 255,712 / 4,065,280 ( 6 % )                 ;
@@ -67,43 +67,50 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 02/07/2020 23:01:23 ;
+; Start date & time ; 02/08/2020 08:04:40 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; de1soc              ;
 +-------------------+---------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                ;
-+--------------------------------------+---------------------------------------------------------------+---------------+-------------+------------+
-; Assignment Name                      ; Value                                                         ; Default Value ; Entity Name ; Section Id ;
-+--------------------------------------+---------------------------------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID                ; 109952957878622.158113448318420                               ; --            ; --          ; --         ;
-; FITTER_EFFORT                        ; Standard Fit                                                  ; Auto Fit      ; --          ; --         ;
-; MAX_CORE_JUNCTION_TEMP               ; 85                                                            ; --            ; --          ; --         ;
-; MIN_CORE_JUNCTION_TEMP               ; 0                                                             ; --            ; --          ; --         ;
-; MISC_FILE                            ; nios_system/synthesis/../nios_system.cmp                      ; --            ; --          ; --         ;
-; MISC_FILE                            ; nios_system/synthesis/../../nios_system.qsys                  ; --            ; --          ; --         ;
-; MUX_RESTRUCTURE                      ; Off                                                           ; Auto          ; --          ; --         ;
-; OPTIMIZATION_MODE                    ; Aggressive Performance                                        ; Balanced      ; --          ; --         ;
-; OPTIMIZATION_TECHNIQUE               ; Speed                                                         ; Balanced      ; --          ; --         ;
-; PARTITION_COLOR                      ; -- (Not supported for targeted family)                        ; --            ; de1soc_top  ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family)                        ; --            ; de1soc_top  ; Top        ;
-; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family)                        ; --            ; de1soc_top  ; Top        ;
-; PHYSICAL_SYNTHESIS_COMBO_LOGIC       ; On                                                            ; Off           ; --          ; --         ;
-; PHYSICAL_SYNTHESIS_REGISTER_RETIMING ; On                                                            ; Off           ; --          ; --         ;
-; PLACEMENT_EFFORT_MULTIPLIER          ; 4.0                                                           ; 1.0           ; --          ; --         ;
-; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                                           ; --            ; --          ; --         ;
-; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                         ; --            ; --          ; --         ;
-; PROJECT_OUTPUT_DIRECTORY             ; out                                                           ; --            ; --          ; --         ;
-; ROUTER_TIMING_OPTIMIZATION_LEVEL     ; MAXIMUM                                                       ; Normal        ; --          ; --         ;
-; SLD_FILE                             ; nios_system/synthesis/nios_system.regmap                      ; --            ; --          ; --         ;
-; SLD_FILE                             ; nios_system/synthesis/nios_system.debuginfo                   ; --            ; --          ; --         ;
-; SLD_INFO                             ; QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1581134438 ; --            ; nios_system ; --         ;
-; SOPCINFO_FILE                        ; nios_system/synthesis/../../nios_system.sopcinfo              ; --            ; --          ; --         ;
-; SYNTHESIS_ONLY_QIP                   ; On                                                            ; --            ; --          ; --         ;
-; TOP_LEVEL_ENTITY                     ; de1soc_top                                                    ; de1soc        ; --          ; --         ;
-+--------------------------------------+---------------------------------------------------------------+---------------+-------------+------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                    ;
++--------------------------------------+-----------------------------------------------------------------+---------------+---------------+------------+
+; Assignment Name                      ; Value                                                           ; Default Value ; Entity Name   ; Section Id ;
++--------------------------------------+-----------------------------------------------------------------+---------------+---------------+------------+
+; COMPILER_SIGNATURE_ID                ; 109952957878622.158116708022960                                 ; --            ; --            ; --         ;
+; FITTER_EFFORT                        ; Standard Fit                                                    ; Auto Fit      ; --            ; --         ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                                              ; --            ; --            ; --         ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                                               ; --            ; --            ; --         ;
+; MISC_FILE                            ; nios_system_s/synthesis/../nios_system_s.cmp                    ; --            ; --            ; --         ;
+; MISC_FILE                            ; nios_system_s/synthesis/../../nios_system_s.qsys                ; --            ; --            ; --         ;
+; MISC_FILE                            ; nios_system/synthesis/../nios_system.cmp                        ; --            ; --            ; --         ;
+; MISC_FILE                            ; nios_system/synthesis/../../nios_system.qsys                    ; --            ; --            ; --         ;
+; MUX_RESTRUCTURE                      ; Off                                                             ; Auto          ; --            ; --         ;
+; OPTIMIZATION_MODE                    ; Aggressive Performance                                          ; Balanced      ; --            ; --         ;
+; OPTIMIZATION_TECHNIQUE               ; Speed                                                           ; Balanced      ; --            ; --         ;
+; PARTITION_COLOR                      ; -- (Not supported for targeted family)                          ; --            ; de1soc_top    ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; -- (Not supported for targeted family)                          ; --            ; de1soc_top    ; Top        ;
+; PARTITION_NETLIST_TYPE               ; -- (Not supported for targeted family)                          ; --            ; de1soc_top    ; Top        ;
+; PHYSICAL_SYNTHESIS_COMBO_LOGIC       ; On                                                              ; Off           ; --            ; --         ;
+; PHYSICAL_SYNTHESIS_REGISTER_RETIMING ; On                                                              ; Off           ; --            ; --         ;
+; PLACEMENT_EFFORT_MULTIPLIER          ; 4.0                                                             ; 1.0           ; --            ; --         ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                                             ; --            ; --            ; --         ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                           ; --            ; --            ; --         ;
+; PROJECT_OUTPUT_DIRECTORY             ; out                                                             ; --            ; --            ; --         ;
+; ROUTER_TIMING_OPTIMIZATION_LEVEL     ; MAXIMUM                                                         ; Normal        ; --            ; --         ;
+; SLD_FILE                             ; nios_system_s/synthesis/nios_system_s.regmap                    ; --            ; --            ; --         ;
+; SLD_FILE                             ; nios_system_s/synthesis/nios_system_s.debuginfo                 ; --            ; --            ; --         ;
+; SLD_FILE                             ; nios_system/synthesis/nios_system.regmap                        ; --            ; --            ; --         ;
+; SLD_FILE                             ; nios_system/synthesis/nios_system.debuginfo                     ; --            ; --            ; --         ;
+; SLD_INFO                             ; QSYS_NAME nios_system HAS_SOPCINFO 1 GENERATION_ID 1581153178   ; --            ; nios_system   ; --         ;
+; SLD_INFO                             ; QSYS_NAME nios_system_s HAS_SOPCINFO 1 GENERATION_ID 1581163232 ; --            ; nios_system_s ; --         ;
+; SOPCINFO_FILE                        ; nios_system_s/synthesis/../../nios_system_s.sopcinfo            ; --            ; --            ; --         ;
+; SOPCINFO_FILE                        ; nios_system/synthesis/../../nios_system.sopcinfo                ; --            ; --            ; --         ;
+; SYNTHESIS_ONLY_QIP                   ; On                                                              ; --            ; --            ; --         ;
+; SYNTHESIS_ONLY_QIP                   ; On                                                              ; --            ; --            ; --         ;
+; TOP_LEVEL_ENTITY                     ; de1soc_top                                                      ; de1soc        ; --            ; --         ;
++--------------------------------------+-----------------------------------------------------------------+---------------+---------------+------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -111,11 +118,11 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:39     ; 1.0                     ; 4991 MB             ; 00:01:03                           ;
-; Fitter               ; 00:01:29     ; 1.2                     ; 7257 MB             ; 00:02:57                           ;
-; Assembler            ; 00:00:14     ; 1.0                     ; 4883 MB             ; 00:00:09                           ;
-; Timing Analyzer      ; 00:00:18     ; 1.4                     ; 5473 MB             ; 00:00:22                           ;
-; Total                ; 00:02:40     ; --                      ; --                  ; 00:04:31                           ;
+; Analysis & Synthesis ; 00:00:45     ; 1.0                     ; 5021 MB             ; 00:01:11                           ;
+; Fitter               ; 00:01:41     ; 1.2                     ; 7313 MB             ; 00:03:23                           ;
+; Assembler            ; 00:00:10     ; 1.0                     ; 4885 MB             ; 00:00:09                           ;
+; Timing Analyzer      ; 00:00:20     ; 1.5                     ; 5483 MB             ; 00:00:27                           ;
+; Total                ; 00:02:56     ; --                      ; --                  ; 00:05:10                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -1,11 +1,11 @@
-#define SW_BASE 0x2020
-#define LEDR_BASE 0x2030
-#define LDA_BASE 0x2000
-
-volatile int *SW = (int *) SW_BASE;
-volatile int *LDA = (int *) LDA_BASE;
+#include "utils.h"
 
 int main () {
+
+    // Clear screen
+    clear_screen();
+    set_start_point(0, 0);
+
     int points[12][2];
 
     points[0][0] = 100;
@@ -20,8 +20,8 @@ int main () {
     points[3][0] = 100;
     points[3][1] = 0;
 
-    points[4][0] = 225;
-    points[4][1] = 150;
+    points[4][0] = 200;
+    points[4][1] = 125;
 
     points[5][0] = 300;
     points[5][1] = 100;
@@ -45,39 +45,21 @@ int main () {
     points[11][1] = 150;
 
     int x, y;
-    int color = 0;
-
-    volatile int test_mode = *SW & 0b1;
-    volatile int fix_poll_mode = *SW & 0b10;
+    int color = 0, c = 0;
 
     for (int i=0; i<12; ++i) {
         // Write x1, y1 and color
         x = points[i][0];
         y = points[i][1];
-        color = 1 + (color % 7);
-        *(LDA + 4) = (y << 9) + x;
-        *(LDA + 5) = color;
-
-        // Draw the line
-        *(LDA + 2) = 1;
-
-        if (i == 4 && test_mode != 0) {
-            // Switch to poll mode.
-            // Should skip lines in poll mode as we
-            // are not polling
-            *(LDA) = 1;
-            if (fix_poll_mode != 0) {
-                // Does not skip lines because we wait for status
-                volatile int status;
-                while ((status = (*(LDA + 1) & 1)) != 0); // Loop till status is 0
-            }
-        }
+        color = 1 + (c % 7);
+        set_color(color);
+        draw_line_to(x, y);
 
         // Update starting point
-        *(LDA + 3) = (y << 9) + x;
+        set_start_point(x, y);
 
         // Update color
-        color++;
+        c++;
     }
 
     while (1);
