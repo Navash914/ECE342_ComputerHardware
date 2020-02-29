@@ -11,7 +11,7 @@ module cpu(
 
 // Signals to interface control and datapath
 logic [15:0] instruction;
-logic [11:0] r_enable;
+logic [13:0] r_enable;
 logic [2:0] sel;
 logic N, Z;
 logic pc_incr, sub;

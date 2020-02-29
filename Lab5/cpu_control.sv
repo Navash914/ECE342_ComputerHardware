@@ -14,7 +14,7 @@ module cpu_control(
     output [2:0] sel,
     output sub,
     output pc_incr,
-    output logic [11:0] r_enable
+    output logic [13:0] r_enable
 );
 
 
