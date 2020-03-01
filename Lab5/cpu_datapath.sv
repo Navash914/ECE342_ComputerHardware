@@ -21,13 +21,13 @@ module cpu_datapath(
 // Databus
 logic [15:0] bus;
 
-// Instantiate general purpose registers
+// Instantiate the 8 general purpose registers
 logic [7:0] [15:0] R;
 
 genvar i;
 generate
     for (i=0; i<8; i++) begin : reg_inst
-        reg_n_h #(16) (clk, r_enable[i], h, bus, R[i]);
+        reg_n_h #(16) gen_reg_i (clk, r_enable[i], h, bus, R[i]);
     end 
 endgenerate
 
@@ -47,13 +47,13 @@ logic [15:0] sum;
 wire z = sum == 16'b0;
 wire n = sum[15];
 
-reg_n #(16) (clk, r_enable[ENABLE_A], bus, A);
-reg_n #(16) (clk, r_enable[ENABLE_S], sum, S);
-reg_n #(1) (clk, r_enable[ENABLE_FLAGS], z, Z);
-reg_n #(1) (clk, r_enable[ENABLE_FLAGS], n, N);
-reg_n #(16) (clk, r_enable[ENABLE_IR], i_mem_rddata, instruction);
-reg_n #(16) (clk, r_enable[ENABLE_ADDR], bus, o_mem_addr);
-reg_n #(16) (clk, r_enable[ENABLE_WRDATA], bus, o_mem_wrdata);
+reg_n #(16) regA (clk, r_enable[ENABLE_A], bus, A);
+reg_n #(16) regS (clk, r_enable[ENABLE_S], sum, S);
+reg_n #(1) regZ (clk, r_enable[ENABLE_FLAGS], z, Z);
+reg_n #(1) regN (clk, r_enable[ENABLE_FLAGS], n, N);
+reg_n #(16) regI (clk, r_enable[ENABLE_IR], i_mem_rddata, instruction);
+reg_n #(16) regAddr (clk, r_enable[ENABLE_ADDR], bus, o_mem_addr);
+reg_n #(16) regWd (clk, r_enable[ENABLE_WRDATA], bus, o_mem_wrdata);
 
 // Arithmetic logic
 always_comb begin
@@ -79,13 +79,12 @@ wire imm_signbit = instruction[15];
 assign imm8 = { {8{imm_signbit}} , instruction[15:8]};
 assign imm11 = { {5{imm_signbit}} , instruction[15:5]};
 
-// Big mux for bus value selector
-
 // sel value constants
 localparam SEL_RX = 3'd0, SEL_RY = 3'd1, SEL_PC = 3'd2,
             SEL_S = 3'd3, SEL_IMM8 = 3'd4, SEL_IMM11 = 3'd5,
             SEL_RDATA = 3'd6;
 
+// Big mux for bus value selector
 always_comb begin
     case(sel)
         SEL_RX: bus = reg_x;
@@ -93,7 +92,7 @@ always_comb begin
         SEL_PC: bus = PC;
         SEL_S: bus = S;
         SEL_IMM8: bus = imm8;
-        SEL_IMM11: bus = imm11 << 1;
+        SEL_IMM11: bus = imm11 << 1;    // Always only need 2*imm11
         SEL_RDATA: bus = i_mem_rddata;
         default: bus = i_mem_rddata;
     endcase

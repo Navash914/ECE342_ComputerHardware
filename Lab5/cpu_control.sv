@@ -37,9 +37,9 @@ always_ff @(posedge clk or posedge reset) begin
 end
 
 wire [3:0] op = instruction[3:0];   // What operation to perform
-wire imm = instruction[4];  // Whether the op uses immediate value
-wire rx = instruction[7:5];
-wire ry = instruction[10:8];
+wire imm = instruction[4];          // Whether the op uses immediate value
+wire [2:0] rx = instruction[7:5];   // Rx selected by instruction
+wire [2:0] ry = instruction[10:8];  // Ry selected by instruction
 
 // Enable bit values for bits above 7 (0-7 are just corresponding registers)
 localparam ENABLE_A = 8, ENABLE_S = 9, ENABLE_FLAGS = 10, ENABLE_IR = 11,
@@ -114,7 +114,7 @@ always_comb begin
                         r_enable[ENABLE_A] = 1'b1;
                     end else begin
                         sel = SEL_RX;
-                        r_enable[SEL_PC] = 1'b1;
+                        r_enable[ENABLE_PC] = 1'b1;
                         nextstate = FETCH;
                     end
                 end

@@ -16,6 +16,7 @@ logic [2:0] sel;
 logic N, Z;
 logic pc_incr, addsub, h;
 
+// Signals have same name to can use .*
 cpu_control control(.*);
 cpu_datapath datapath(.*);
 
