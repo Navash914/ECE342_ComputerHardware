@@ -1,0 +1,4 @@
+Info (10281): Verilog HDL Declaration information at cpu_datapath.sv(39): object "PC" differs only in case from object "pc" in the same scope File: E:/ECE342/lab6/part1/cpu_datapath.sv Line: 39
+Info (10281): Verilog HDL Declaration information at cpu_datapath.sv(19): object "Z" differs only in case from object "z" in the same scope File: E:/ECE342/lab6/part1/cpu_datapath.sv Line: 19
+Info (10281): Verilog HDL Declaration information at cpu_datapath.sv(17): object "N" differs only in case from object "n" in the same scope File: E:/ECE342/lab6/part1/cpu_datapath.sv Line: 17
+Warning (10273): Verilog HDL warning at de1soc_top.sv(92): extended using "x" or "z" File: E:/ECE342/lab6/part1/de1soc_top.sv Line: 92
