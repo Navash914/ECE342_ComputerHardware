@@ -7,7 +7,7 @@ module cpu_control (
     output logic o_rfr_ir_ld,
     output logic o_pc_ld,
     output logic o_pc_rd,
-    output logic o_pc_addr,
+    output logic o_pc_addr_sel,
 
     // RFR
     input [15:0] i_ir_rfr,
@@ -37,6 +37,7 @@ module cpu_control (
 
     // RFW
     output logic o_rf_wr,
+    output logic o_ld_r7,
     output logic [2:0] o_rfw_sel
 );
 
@@ -45,8 +46,7 @@ cpu_fetch cpu_fetch0
 	.pc_ld(o_pc_ld),
 	.rfr_pc_ld(o_rfr_pc_ld),
 	.rfr_ir_ld(o_rfr_ir_ld),
-	.pc_rd(o_pc_rd),
-	.pc_addr_sel(o_pc_addr)
+	.pc_rd(o_pc_rd)
 );
 
 cpu_rf_read cpu_rfr0
@@ -61,9 +61,12 @@ cpu_rf_read cpu_rfr0
 cpu_execute cpu_ex0
 (
 	.instr(i_ir_ex),
+    .i_N(i_N),
+    .i_Z(i_Z),
 	
 	.rfw_pc_ld(o_rfw_pc_ld),
 	.rfw_ir_ld(o_rfw_ir_ld),
+    .pc_addr_sel(o_pc_addr_sel),
 	
 	.alu_imm(o_alu_imm),
 	.ld_flags(o_ld_flags),
@@ -83,6 +86,7 @@ cpu_rf_write cpu_rfw0
 	.instr(i_ir_rfw),
 
 	.rf_wr(o_rf_wr),
+    .ld_r7(o_ld_r7),
 	.rfw_sel(o_rfw_sel)
 );
 

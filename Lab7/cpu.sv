@@ -18,7 +18,7 @@ module cpu
 
 // Fetch
 logic rfr_pc_ld, rfr_ir_ld;
-logic pc_ld, pc_addr;
+logic pc_ld, pc_addr_sel;
 
 // RFR
 logic [15:0] ir_rfr;
@@ -39,7 +39,7 @@ logic rfw_rx;
 logic rfw_ry;
 
 // RFW
-logic rf_wr;
+logic rf_wr, ld_r7;
 logic [2:0] rfw_sel;
 
 cpu_control cpu_control0
@@ -52,7 +52,7 @@ cpu_control cpu_control0
 	.o_rfr_ir_ld(rfr_ir_ld),
 	.o_pc_ld(pc_ld),
 	.o_pc_rd(o_pc_rd),
-	.o_pc_addr(pc_addr),
+	.o_pc_addr_sel(pc_addr_sel),
 
 	.i_ir_rfr(ir_rfr),
 	.o_ex_pc_ld(ex_pc_ld),
@@ -79,6 +79,7 @@ cpu_control cpu_control0
 	.o_mem_wr(o_ldst_wr),
 
 	.o_rf_wr(rf_wr),
+	.o_ld_r7(ld_r7),
 	.o_rfw_sel(rfw_sel)
 );
 
@@ -97,7 +98,7 @@ cpu_datapath cpu_datapath0
 	.i_pc_ld(pc_ld),
 	.i_rfr_pc_ld(rfr_pc_ld),
 	.i_rfr_ir_ld(rfr_ir_ld),
-	.i_sel_pc(pc_addr),
+	.i_sel_pc(pc_addr_sel),
 
 	.o_rfr_ir(ir_rfr),
 	.i_ex_pc_ld(ex_pc_ld),
@@ -121,6 +122,7 @@ cpu_datapath cpu_datapath0
 	.i_rfw_ry(rfw_ry),
 
 	.i_rf_wr(rf_wr),
+	.i_ld_r7(ld_r7),
 	.i_rfw_sel(rfw_sel),
 
 	.o_tb_regs(o_tb_regs)

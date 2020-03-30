@@ -42,6 +42,7 @@ input i_rfw_ry,
 
 //rf writeback
 input i_rf_wr,
+input i_ld_r7,
 input [2:0] i_rfw_sel,
 
 //tb regs
@@ -49,10 +50,15 @@ output logic [7:0][15:0] o_tb_regs
 );
 
 // PC Registers
-logic [15:0] pc, pc_in, pc_next, pc_jump, pc_rfr, pc_ex, pc_rfw;
+logic [15:0] pc, pc_in, pc_next, pc_jump, pc_jump_r, pc_rfr, pc_ex, pc_rfw;
 
 // Instruction Registers
 logic [15:0] ir_rfr, ir_ex, ir_rfw;
+
+// Valid Register
+logic [1:0] valid_reg_ex, valid_reg_rfw;
+wire valid_ex = valid_reg_ex == 2'b0;
+wire valid_rfw = valid_reg_rfw == 2'b0;
 
 // Register Selectors
 logic [15:0] Rx_ex, Ry_ex;
@@ -69,7 +75,7 @@ logic [7:0] [15:0] R;
 genvar i;
 generate
     for (i=0; i<8; i++) begin : reg_inst
-        reg_n #(16) gen_reg_i (clk, R_enable[i], Rin, R[i]);
+        reg_n #(16) gen_reg_i (clk, valid_rfw & R_enable[i], Rin, R[i]);
     end 
 endgenerate
 
@@ -94,8 +100,8 @@ end
 wire z = sum == 16'b0;
 wire n = sum[15];
 
-reg_n #(1) regZ (clk, i_flag_ld, z, o_Z);
-reg_n #(1) regN (clk, i_flag_ld, n, o_N);
+reg_n #(1) regZ (clk, valid_ex & i_flag_ld, z, o_Z);
+reg_n #(1) regN (clk, valid_ex & i_flag_ld, n, o_N);
 
 // Assign Outputs
 assign o_rfr_ir = ir_rfr;
@@ -104,14 +110,16 @@ assign o_rfw_ir = ir_rfw;
 assign o_tb_regs = R;
 
 // PC Logic
+wire [15:0] rx, ry;
 assign pc_next = pc + 2;
-assign pc_jump = pc_next + (imm11_rfr << 1);
+assign pc_jump = pc_ex + (imm11_ex << 1);
+assign pc_jump_r = rx;
 assign o_pc_addr = pc;
 
 always_comb begin
 	case(i_sel_pc)
 		1'b0: pc_in = pc_next;
-		1'b1: pc_in = 0; // TODO: Replace with jump logic later
+		1'b1: pc_in = i_alu_imm ? pc_jump : pc_jump_r;
 	endcase
 end
 
@@ -142,12 +150,12 @@ assign imm11_rfr = {{5{ir_rfr[15]}},{ir_rfr[15:5]}};
 assign imm8_ex = {{8{ir_ex[15]}},{ir_ex[15:8]}};
 assign imm11_ex = {{5{ir_ex[15]}},{ir_ex[15:5]}};
 
-wire [15:0] rx = (Rx_sel_ex == Rx_sel_rfw) ? Rin : Rx_ex;
-wire [15:0] ry = (Ry_sel_ex == Rx_sel_rfw) ? Rin : Ry_ex;
+assign rx = (Rx_sel_ex == Rx_sel_rfw) ? Rin : Rx_ex;
+assign ry = (Ry_sel_ex == Rx_sel_rfw) ? Rin : Ry_ex;
 
 // ALU inputs
 assign alu_a = rx;
-assign alu_b = i_alu_imm ? imm8_ex : ry;   // TODO: Account for imm11 values for jumping
+assign alu_b = i_alu_imm ? imm8_ex : ry;
 
 // st or ld addresses
 assign o_mem_wrdata = ry;
@@ -163,6 +171,7 @@ assign imm11_rfw = {{5{ir_rfw[15]}},{ir_rfw[15:5]}};
 always_comb begin
     R_enable = 8'd0;
     R_enable[Rx_sel_rfw] = i_rf_wr;
+	if (i_ld_r7) R_enable[7] = 1'b1;
 	
 	// Rin data multiplexer
 	case (i_rfw_sel)
@@ -181,6 +190,8 @@ end
 always_ff @ (posedge clk, posedge reset) begin
 	if (reset) begin
 		pc <= 0;
+		valid_reg_ex <= 0;
+		valid_reg_rfw <= 0;
 		pc_rfr <= 0;
 		pc_ex <= 0;
 		pc_rfw <= 0;
@@ -192,6 +203,14 @@ always_ff @ (posedge clk, posedge reset) begin
 		Ry_rfw <= 0;
 	end
 	else begin
+		// Validity
+		if (i_sel_pc) begin
+			valid_reg_ex <= 2'd2;
+		end else begin
+			valid_reg_ex <= valid_reg_ex >> 1;
+		end
+		valid_reg_rfw <= valid_reg_ex;
+
 		// Fetch
 		if(i_pc_ld) pc <= pc_in;
 
@@ -203,7 +222,7 @@ always_ff @ (posedge clk, posedge reset) begin
 		// Execute
 		if(i_ex_pc_ld) pc_ex <= pc_rfr;
 		if(i_ex_ir_ld) ir_ex <= ir_rfr;
-		if(i_S_ld) S <= sum;
+		if(valid_ex & i_S_ld) S <= sum;
 
 		// RFW
 		if(i_rfw_pc_ld) pc_rfw <= pc_ex;
