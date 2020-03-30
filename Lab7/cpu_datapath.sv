@@ -128,8 +128,8 @@ assign Ry_sel_ex = ir_ex[10:8];
 assign Rx_sel_rfw = ir_rfw[7:5];
 assign Ry_sel_rfw = ir_rfw[10:8];
 
-assign Rx = R[Rx_sel_rfr];
-assign Ry = R[Ry_sel_rfr];
+assign Rx = (Rx_sel_rfr == Rx_sel_rfw) ? Rin : R[Rx_sel_rfr];
+assign Ry = (Ry_sel_rfr == Rx_sel_rfw) ? Rin : R[Ry_sel_rfr];
 
 // imm values
 assign imm8_rfr = {{8{ir_rfr[15]}},{ir_rfr[15:8]}};
@@ -142,13 +142,16 @@ assign imm11_rfr = {{5{ir_rfr[15]}},{ir_rfr[15:5]}};
 assign imm8_ex = {{8{ir_ex[15]}},{ir_ex[15:8]}};
 assign imm11_ex = {{5{ir_ex[15]}},{ir_ex[15:5]}};
 
+wire [15:0] rx = (Rx_sel_ex == Rx_sel_rfw) ? Rin : Rx_ex;
+wire [15:0] ry = (Ry_sel_ex == Rx_sel_rfw) ? Rin : Ry_ex;
+
 // ALU inputs
-assign alu_a = Rx_ex;
-assign alu_b = i_alu_imm ? imm8_ex : Ry_ex;   // TODO: Account for imm11 values for jumping
+assign alu_a = rx;
+assign alu_b = i_alu_imm ? imm8_ex : ry;   // TODO: Account for imm11 values for jumping
 
 // st or ld addresses
-assign o_mem_wrdata = Ry_ex;
-assign o_mem_addr = Rx_ex;
+assign o_mem_wrdata = ry;
+assign o_mem_addr = rx;
 
 
 // ================ RFW Logic ================ //
@@ -205,8 +208,8 @@ always_ff @ (posedge clk, posedge reset) begin
 		// RFW
 		if(i_rfw_pc_ld) pc_rfw <= pc_ex;
 		if(i_rfw_ir_ld) ir_rfw <= ir_ex;
-		if(i_rfw_rx) Rx_rfw <= Rx_ex;
-		if(i_rfw_ry) Ry_rfw <= Ry_ex;
+		if(i_rfw_rx) Rx_rfw <= rx;
+		if(i_rfw_ry) Ry_rfw <= ry;
 	end
 end
 
