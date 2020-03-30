@@ -16,6 +16,12 @@ module cpu
 	output [7:0][15:0] o_tb_regs
 );
 
+// Memory
+logic mem_valid, mem_rd, mem_wr;
+
+assign o_ldst_rd = mem_rd & mem_valid;
+assign o_ldst_wr = mem_wr & mem_valid;
+
 // Fetch
 logic rfr_pc_ld, rfr_ir_ld;
 logic pc_ld, pc_addr_sel;
@@ -75,8 +81,8 @@ cpu_control cpu_control0
 	.o_rfw_rx(rfw_rx),
 	.o_rfw_ry(rfw_ry),
 
-	.o_mem_rd(o_ldst_rd),
-	.o_mem_wr(o_ldst_wr),
+	.o_mem_rd(mem_rd),
+	.o_mem_wr(mem_wr),
 
 	.o_rf_wr(rf_wr),
 	.o_ld_r7(ld_r7),
@@ -94,6 +100,7 @@ cpu_datapath cpu_datapath0
 	.i_mem_rddata(i_ldst_rddata),
 	.o_mem_wrdata(o_ldst_wrdata),
 	.o_mem_addr(o_ldst_addr),
+	.o_mem_valid(mem_valid),
 
 	.i_pc_ld(pc_ld),
 	.i_rfr_pc_ld(rfr_pc_ld),

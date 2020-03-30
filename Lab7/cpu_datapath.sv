@@ -11,6 +11,7 @@ output logic [15:0] o_pc_addr,
 input [15:0] i_mem_rddata,
 output logic [15:0] o_mem_wrdata,
 output logic [15:0] o_mem_addr,
+output logic o_mem_valid,
 
 // Fetch Signals
 input i_pc_ld,
@@ -108,6 +109,7 @@ assign o_rfr_ir = ir_rfr;
 assign o_ex_ir = ir_ex;
 assign o_rfw_ir = ir_rfw;
 assign o_tb_regs = R;
+assign o_mem_valid = valid_ex;
 
 // PC Logic
 wire [15:0] rx, ry;
@@ -117,10 +119,8 @@ assign pc_jump_r = rx;
 assign o_pc_addr = pc;
 
 always_comb begin
-	case(i_sel_pc)
-		1'b0: pc_in = pc_next;
-		1'b1: pc_in = i_alu_imm ? pc_jump : pc_jump_r;
-	endcase
+	if (valid_ex & i_sel_pc) pc_in = i_alu_imm ? pc_jump : pc_jump_r;
+	else pc_in = pc_next;
 end
 
 // ================ RFR Logic ================ //
@@ -136,8 +136,8 @@ assign Ry_sel_ex = ir_ex[10:8];
 assign Rx_sel_rfw = ir_rfw[7:5];
 assign Ry_sel_rfw = ir_rfw[10:8];
 
-assign Rx = (Rx_sel_rfr == Rx_sel_rfw) ? Rin : R[Rx_sel_rfr];
-assign Ry = (Ry_sel_rfr == Rx_sel_rfw) ? Rin : R[Ry_sel_rfr];
+assign Rx = (valid_rfw & Rx_sel_rfr == Rx_sel_rfw) ? Rin : R[Rx_sel_rfr];
+assign Ry = (valid_rfw & Ry_sel_rfr == Rx_sel_rfw) ? Rin : R[Ry_sel_rfr];
 
 // imm values
 assign imm8_rfr = {{8{ir_rfr[15]}},{ir_rfr[15:8]}};
@@ -150,16 +150,16 @@ assign imm11_rfr = {{5{ir_rfr[15]}},{ir_rfr[15:5]}};
 assign imm8_ex = {{8{ir_ex[15]}},{ir_ex[15:8]}};
 assign imm11_ex = {{5{ir_ex[15]}},{ir_ex[15:5]}};
 
-assign rx = (Rx_sel_ex == Rx_sel_rfw) ? Rin : Rx_ex;
-assign ry = (Ry_sel_ex == Rx_sel_rfw) ? Rin : Ry_ex;
+assign rx = (valid_rfw & Rx_sel_ex == Rx_sel_rfw) ? Rin : Rx_ex;
+assign ry = (valid_rfw & Ry_sel_ex == Rx_sel_rfw) ? Rin : Ry_ex;
 
 // ALU inputs
 assign alu_a = rx;
 assign alu_b = i_alu_imm ? imm8_ex : ry;
 
 // st or ld addresses
-assign o_mem_wrdata = ry;
-assign o_mem_addr = rx;
+assign o_mem_wrdata = rx;
+assign o_mem_addr = ry;
 
 
 // ================ RFW Logic ================ //
@@ -175,8 +175,8 @@ always_comb begin
 	
 	// Rin data multiplexer
 	case (i_rfw_sel)
-		3'd0: Rin = Ry_rfw; //mv 
-		3'd1: Rin = {imm8_rfw[7:0], Rx_rfw[7:0]}; //mvhi
+		3'd0: Rin = R[Ry_sel_rfw]; //mv 
+		3'd1: Rin = {imm8_rfw[7:0], R[Rx_sel_rfw][7:0]}; //mvhi
 		3'd2: Rin = S; // add or sub
 		3'd3: Rin = pc_rfw; //call
 		3'd4: Rin = i_mem_rddata; //ld
@@ -204,7 +204,7 @@ always_ff @ (posedge clk, posedge reset) begin
 	end
 	else begin
 		// Validity
-		if (i_sel_pc) begin
+		if (valid_ex & i_sel_pc) begin
 			valid_reg_ex <= 2'd2;
 		end else begin
 			valid_reg_ex <= valid_reg_ex >> 1;

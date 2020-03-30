@@ -21,7 +21,7 @@ always_comb begin
 		4'd1, 4'd2: begin // add or sub
 			rfw_sel = 3'd2;
 		end
-		4'd5: begin // ld
+		4'd4: begin // ld
 			rfw_sel = 3'd4;
 		end
 		4'd6: begin // mvhi
